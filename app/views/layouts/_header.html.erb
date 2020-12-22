@@ -15,5 +15,14 @@
       <li><%= link_to "log in", new_user_session_path %></li>
       <li><%= link_to "sign up", new_user_registration_path %></li>
     </ul>
+  <% if user_signed_in? %>
+  <nav>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "mypage", user_path(current_user) %></li>
+      <li><%= link_to "ユーザーを見る", users_path %></li>
+      <li><%= link_to "みんなの投稿", posts_path %></li>
+    </ul>
+  </nav>
+  <% end %>
   </nav>
 </div>

@@ -1,11 +1,27 @@
-<%= form_with model:@post, local:true do |f| %>
 
- <%= f.rabel "タイトル" %>
+<% @posts.each do |posts_all| %>
+
+ <%= posts_all.user.name %>
+ <%= posts_all.created_at %>
+ <%= posts_all.title %>
+ <%= link_to "投稿詳細", post_path(posts_all) %>
+ <%= link_to "投稿編集", edit_post_path(posts_all) %>
+
+
+<% end %>
+
+
+
+
+
+<%= form_with model:@post, url:posts_path, local:true do |f| %>
+
+ <%= f.label "タイトル" %>
  <%= f.text_field :title %>
- 
- <%= f.rabel "本文" %>
+
+ <%= f.label "本文" %>
  <%= f.text_field :content %>
- 
- <% f.submit "投稿する" %>
- 
-<% end 
+
+ <%= f.submit "投稿する" %>
+
+<% end %>
