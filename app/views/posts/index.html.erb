@@ -3,7 +3,7 @@
 
  <%= attachment_image_tag(posts_all, :post_image, :fill, 50, 50) %>
  <%= posts_all.user.name %>
- <%= posts_all.created_at %>
+ <%= posts_all.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
  <%= posts_all.title %>
  <%= link_to "投稿詳細", post_path(posts_all) %>
 

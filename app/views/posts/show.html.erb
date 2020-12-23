@@ -1,6 +1,6 @@
 
 <%= attachment_image_tag(@postdetail, :post_image, :fill, 50, 50) %>
-<%= @postdetail.created_at %>
+<%= @postdetail.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
 <%= @postdetail.title %>
 <%= @postdetail.content %>
 
