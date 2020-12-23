@@ -2,6 +2,7 @@
 
 <% @user.each do |users| %>
 
+ <%= attachment_image_tag(users, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
  <%= users.name %>
  <%= users.gender %>
  <%= users.prefectures %>

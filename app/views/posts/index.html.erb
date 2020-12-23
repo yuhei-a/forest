@@ -1,12 +1,11 @@
 
 <% @posts.each do |posts_all| %>
 
+ <%= attachment_image_tag(posts_all, :post_image, :fill, 50, 50) %>
  <%= posts_all.user.name %>
  <%= posts_all.created_at %>
  <%= posts_all.title %>
  <%= link_to "投稿詳細", post_path(posts_all) %>
- <%= link_to "投稿編集", edit_post_path(posts_all) %>
-
 
 <% end %>
 
@@ -18,6 +17,9 @@
 
  <%= f.label "タイトル" %>
  <%= f.text_field :title %>
+
+ <%= f.label "画象" %>
+ <%= f.attachment_field :post_image %>
 
  <%= f.label "本文" %>
  <%= f.text_field :content %>

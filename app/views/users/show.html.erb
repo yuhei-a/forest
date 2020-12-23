@@ -1,6 +1,8 @@
 
 <%= @user.name %>
 
+<%= attachment_image_tag(@user, :profile_image, size:"50×50", fallback: "no_image.jpg") %>
+
 <%= @user.gender %>
 
 <%= @user.bloodtype %>

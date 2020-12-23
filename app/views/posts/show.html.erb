@@ -1,4 +1,8 @@
 
+<%= attachment_image_tag(@postdetail, :post_image, :fill, 50, 50) %>
 <%= @postdetail.created_at %>
 <%= @postdetail.title %>
 <%= @postdetail.content %>
+
+ <%= link_to "投稿編集", edit_post_path(@postdetail) %>
+ <%= link_to "削除", post_path(@postdetail), method: :delete %>
