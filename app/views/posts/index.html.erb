@@ -1,0 +1,11 @@
+<%= form_with model:@post, local:true do |f| %>
+
+ <%= f.rabel "タイトル" %>
+ <%= f.text_field :title %>
+ 
+ <%= f.rabel "本文" %>
+ <%= f.text_field :content %>
+ 
+ <% f.submit "投稿する" %>
+ 
+<% end 
