@@ -6,6 +6,7 @@ class User < ApplicationRecord
   attachment :profile_image
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
 
 
   enum gender: { '秘密': 0, '男性': 1, '女性': 2 }, _prefix: true

@@ -1,17 +1,30 @@
 
-<%= @user.name %>
+<div class="container">
+<taable>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>プロフィール画象</th>
+      <th>性別</th>
+      <th>都道府県</th>
+      <th>星座</th>
+      <th>血液型</th>
+      <th>自己紹介</th>
+      <th>編集</th>
+    </tr>
+  </thead>
 
-<%= attachment_image_tag(@user, :profile_image, size:"50×50", fallback: "no_image.jpg") %>
-
-<%= @user.gender %>
-
-<%= @user.bloodtype %>
-
-<%= @user.sign %>
-
-<%= @user.prefectures %>
-
-<%= @user.introduction %>
-
-
-<%= link_to "マイページを編集", edit_user_path(@user) %>
+  <tbody>
+    <tr>
+      <td><%= @user.name %></td>
+      <td><%= attachment_image_tag(@user, :profile_image, size:"30×30", fallback: "no_image.jpg") %></td>
+      <td><%= @user.gender %></td>
+      <td><%= @user.prefectures %></td>
+      <td><%= @user.sign %></td>
+      <td><%= @user.bloodtype %></td>
+      <td><%= @user.introduction %></td>
+      <td><%= link_to "マイページを編集", edit_user_path(@user) %></td>
+    </tr>
+  </tbody>
+</taable>
+</div>

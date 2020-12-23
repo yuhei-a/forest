@@ -21,6 +21,7 @@
       <li><%= link_to "mypage", user_path(current_user) %></li>
       <li><%= link_to "ユーザーを見る", users_path %></li>
       <li><%= link_to "みんなの投稿", posts_path %></li>
+      <li><%= link_to "log out", destroy_user_session_path, method: :delete %></li>
     </ul>
   </nav>
   <% end %>

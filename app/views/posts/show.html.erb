@@ -3,8 +3,7 @@
 <%= @postdetail.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
 <%= @postdetail.title %>
 <%= @postdetail.content %>
-
-<%= render "likes/likes", post: @postdetail %>
+  <%= render "likes/likes", post: @postdetail %>
 
  <%= link_to "投稿編集", edit_post_path(@postdetail) %>
  <%= link_to "削除", post_path(@postdetail), method: :delete %>
