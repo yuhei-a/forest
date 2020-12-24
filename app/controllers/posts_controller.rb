@@ -11,7 +11,6 @@ class PostsController < ApplicationController
     @user = @post.user
   end
 
-
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id

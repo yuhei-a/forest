@@ -5,7 +5,9 @@
  <%= post.user.name %>
  <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
  <%= post.title %>
+ <div class="likes_<%= post.id %>">
    <%= render "likes/likes", post: post %>
+ </div>
    <%= link_to "投稿詳細", post_path(post) %>
 
 <% end %>
