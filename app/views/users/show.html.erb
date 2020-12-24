@@ -10,6 +10,8 @@
       <th>星座</th>
       <th>血液型</th>
       <th>自己紹介</th>
+      <th>フォロー数</th>
+      <th>フォロワー数</th>
       <th>編集</th>
     </tr>
   </thead>
@@ -17,12 +19,14 @@
   <tbody>
     <tr>
       <td><%= @user.name %></td>
-      <td><%= attachment_image_tag(@user, :profile_image, size:"30×30", fallback: "no_image.jpg") %></td>
+      <td><%= attachment_image_tag(@user, :profile_image, style:"height: 50px; width:50px;", fallback: "no_image.jpg") %></td>
       <td><%= @user.gender %></td>
       <td><%= @user.prefectures %></td>
       <td><%= @user.sign %></td>
       <td><%= @user.bloodtype %></td>
       <td><%= @user.introduction %></td>
+      <td><%= @user.follower.count %></td>
+      <td><%= @user.followed.count %></td>
       <td><%= link_to "マイページを編集", edit_user_path(@user) %></td>
     </tr>
   </tbody>

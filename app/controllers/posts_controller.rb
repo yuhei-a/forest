@@ -1,18 +1,16 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
-    @post = Post.new
+    @post = Post.all
+    @postnew = Post.new
   end
 
   def show
-    @postdetail = Post.find(params[:id])
-    @post = Post.new
+    @post = Post.find(params[:id])
+    @postnew = Post.new
     @post_comment = PostComment.new
+    @user = @post.user
   end
 
-  def new
-    @post = Post.new
-  end
 
   def create
     @post = Post.new(post_params)

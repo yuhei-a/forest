@@ -1,16 +1,23 @@
 
-<%= attachment_image_tag(@postdetail, :post_image, :fill, 50, 50) %>
-<%= @postdetail.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-<%= @postdetail.title %>
-<%= @postdetail.content %>
-  <%= render "likes/likes", post: @postdetail %>
+<%= attachment_image_tag(@post, :post_image, style:"height: 50px; width: 50px;" ) %>
+<%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+<%= @post.title %>
+<%= @post.content %>
+  <%= render "likes/likes", post: @post %>
+   <% if @user != current_user %>
+     <% if current_user.following?(@user) %>
+       <%= link_to "フォローを外す", user_relationships_path(@user.id), method: :delete %>
+     <% else %>
+       <%= link_to "フォローする", user_relationships_path(@user.id), method: :post %>
+     <% end %>
+   <% end %>
+  <%= render "post_comments/post_comments", post: @post %>
+ <%= link_to "投稿編集", edit_post_path(@post) %>
+ <%= link_to "削除", post_path(@post), method: :delete %>
 
-  <%= render "post_comments/post_comments", post: @postdetail %>
- <%= link_to "投稿編集", edit_post_path(@postdetail) %>
- <%= link_to "削除", post_path(@postdetail), method: :delete %>
 
-
- <%= form_with model: [@post,@post_comment],url:post_post_comments_path(@postdetail), local: true do |f| %>
+ <!--コメントフォーム --!>
+ <%= form_with model: [@post,@post_comment],url:post_post_comments_path(@post), local: true do |f| %>
 
   <%= f.label :comment %>
   <%= f.text_area :comment %>

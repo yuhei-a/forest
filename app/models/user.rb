@@ -9,6 +9,24 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :post_comments, dependent: :destroy
 
+  #フォロー機能
+  has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :following_user, through: :follower, source: :followed
+  has_many :followed_user, through: :followed, source: :following
+
+
+  def follow(user_id)
+    follower.create(followed_id: user_id)
+  end
+
+  def unfollow(user_id)
+    follower.find_by(followed_id: user_id).destroy
+  end
+
+  def following?(user)
+    following_user.include?(user)
+  end
 
   enum gender: { '秘密': 0, '男性': 1, '女性': 2 }, _prefix: true
   enum bloodtype: { '秘密': 0, 'A型': 1, 'B型': 2, 'AB型': 3, 'O型': 4 }, _prefix: true

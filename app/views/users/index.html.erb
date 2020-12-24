@@ -2,7 +2,7 @@
 
 <% @user.each do |users| %>
 
- <%= attachment_image_tag(users, :profile_image, size:"30×30", fallback: "no_image.jpg") %>
+ <%= attachment_image_tag(users, :profile_image, style:"height: 80px; width: 80px;", fallback: "no_image.jpg") %>
  <%= users.name %>
  <%= users.gender %>
  <%= users.prefectures %>
