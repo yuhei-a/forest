@@ -5,8 +5,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @postdet = Post.find(params[:id])
+    @postdetail = Post.find(params[:id])
     @post = Post.new
+    @post_comment = PostComment.new
   end
 
   def new

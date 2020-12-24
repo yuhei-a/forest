@@ -5,5 +5,18 @@
 <%= @postdetail.content %>
   <%= render "likes/likes", post: @postdetail %>
 
+  <%= render "post_comments/post_comments", post: @postdetail %>
  <%= link_to "投稿編集", edit_post_path(@postdetail) %>
  <%= link_to "削除", post_path(@postdetail), method: :delete %>
+
+
+ <%= form_with model: [@post,@post_comment],url:post_post_comments_path(@postdetail), local: true do |f| %>
+
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+
+ <%= f.submit "コメントする" %>
+
+ <% end %>
+
+
