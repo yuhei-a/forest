@@ -1,2 +1,13 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+
+
+<% @user.each do |users| %>
+
+ <%= attachment_image_tag(users, :profile_image, style:"height: 80px; width: 80px;", fallback: "no_image.jpg") %>
+ <%= users.name %>
+ <%= users.gender %>
+ <%= users.prefectures %>
+ <%= users.bloodtype %>
+ <%= users.sign %>
+ <%= users.introduction %>
+
+ <% end %>

@@ -1,11 +1,32 @@
-<%= form_with model:@post, local:true do |f| %>
 
- <%= f.rabel "タイトル" %>
+<% @post.each do |post| %>
+
+ <%= attachment_image_tag(post, :post_image, style:"height: 50px; width: 50px;" ) %>
+ <%= post.user.name %>
+ <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+ <%= post.title %>
+ <div class="likes_<%= post.id %>">
+   <%= render "likes/likes", post: post %>
+ </div>
+   <%= link_to "投稿詳細", post_path(post) %>
+
+<% end %>
+
+
+
+
+
+<%= form_with model:@postnew, url:posts_path, local:true do |f| %>
+
+ <%= f.label "タイトル" %>
  <%= f.text_field :title %>
- 
- <%= f.rabel "本文" %>
+
+ <%= f.label "画象" %>
+ <%= f.attachment_field :post_image %>
+
+ <%= f.label "本文" %>
  <%= f.text_field :content %>
- 
- <% f.submit "投稿する" %>
- 
-<% end 
+
+ <%= f.submit "投稿する" %>
+
+<% end %>
