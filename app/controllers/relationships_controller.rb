@@ -10,12 +10,12 @@ class RelationshipsController < ApplicationController
    redirect_to request.referer
   end
 
- #フォロー一覧
+  #フォロー一覧
   def following
-    @following = current_user.following_user
+   @following = current_user.following_user
   end
 
   def followed
-    @followed = current_user.followed_user
+   @followed = current_user.followed_user
   end
 end

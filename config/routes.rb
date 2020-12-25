@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get :following, :followed
     end
    end
+   resources :chats, only: [:create,:show,:destroy]
   end
   resources :posts do
     resources :post_comments, only: [:create,:destroy]

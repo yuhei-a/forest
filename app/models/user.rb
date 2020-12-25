@@ -15,6 +15,10 @@ class User < ApplicationRecord
   has_many :following_user, through: :follower, source: :followed
   has_many :followed_user, through: :followed, source: :follower
 
+  #DM機能
+  has_many :chats
+  has_many :user_rooms
+
 
   def follow(user_id)
     follower.create(followed_id: user_id)

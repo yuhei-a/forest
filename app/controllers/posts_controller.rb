@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @post = Post.all
-    @postnew = Post.new
+    @postnew = current_user.posts.new
   end
 
   def show
@@ -12,10 +12,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = posts.new(post_params)
     @post.user_id = current_user.id
     @post.save
-    redirect_to request.referer
+  　redirect_to request.referer
   end
 
  def edit

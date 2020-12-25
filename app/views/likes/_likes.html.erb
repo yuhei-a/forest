@@ -5,7 +5,7 @@
    <% end %>
 <% else %>
    <%= link_to post_likes_path(post), method: :post, remote: true do %>
-     <i class="far fa-thumbs-up"></i>
+    <i class="far fa-thumbs-up"></i>
      <%= post.likes.count %>
    <% end %>
 <% end %>

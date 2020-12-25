@@ -1,6 +1,5 @@
 
 <% @post.each do |post| %>
-
  <%= attachment_image_tag(post, :post_image, style:"height: 50px; width: 50px;" ) %>
  <%= post.user.name %>
  <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
@@ -12,8 +11,6 @@
   <%= post.post_comments.count %>
  </i>
    <%= link_to "投稿詳細", post_path(post) %>
-
-
 <% end %>
 
 

@@ -1,5 +1,10 @@
 
 <div class="container">
+
+  <% if current_user != @user %>
+   <%= link_to "DM", user_chat_path(@user) %>
+  <% end %>
+
 <taable>
   <thead>
     <tr>

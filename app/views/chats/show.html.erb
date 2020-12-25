@@ -1,0 +1,15 @@
+<%= form_with model: @chat, url: user_chats_path(@user) do |f| %>
+ <%= f.text_field :message %>
+ <%= f.hidden_field :room_id %>
+ <%= f.submit %>
+<% end %>
+
+
+
+<% @chats.each do |chat| %>
+
+  <%= chat.user.name %>
+  <%= chat.message %>
+  <%= link_to "コメントを取り消す", user_chat_path(chat.id,chat.user.id), method: :delete %>
+
+<% end %>
