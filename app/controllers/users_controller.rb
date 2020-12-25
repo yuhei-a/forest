@@ -17,7 +17,6 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-
   def top; end
 
   def about; end

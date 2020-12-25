@@ -8,7 +8,11 @@
  <div class="likes_<%= post.id %>">
    <%= render "likes/likes", post: post %>
  </div>
+ <i class="far fa-comment-dots">
+  <%= post.post_comments.count %>
+ </i>
    <%= link_to "投稿詳細", post_path(post) %>
+
 
 <% end %>
 

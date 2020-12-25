@@ -1,0 +1,9 @@
+
+  <h4>現在、フォローされているユーザーはいません。
+  自分に近い人をフォローしてみましょう、フォローしてくれるかもしれません！</h4>
+
+  <% @following.each do |following_user| %>
+
+   <%= following_user.name %>
+   <%= attachment_image_tag(following_user, :profile_image, style:"height: 50px; width: 50px;" ) %>
+<% end %>
