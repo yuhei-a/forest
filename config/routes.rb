@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tags/create'
   root 'users#top'
   get "/about" => "users#about"
   devise_for :users
@@ -13,6 +14,8 @@ Rails.application.routes.draw do
   end
   resources :posts do
     resources :post_comments, only: [:create,:destroy]
+    resources :tags, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
+
   end
 end

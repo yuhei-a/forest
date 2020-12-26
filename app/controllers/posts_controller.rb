@@ -1,21 +1,27 @@
 class PostsController < ApplicationController
   def index
+    @tag_list = Tag.all
     @post = Post.all
     @postnew = current_user.posts.new
   end
 
   def show
     @post = Post.find(params[:id])
+    @post_tag = @post.tags
     @postnew = Post.new
     @post_comment = PostComment.new
     @user = @post.user
   end
 
   def create
-    @post = posts.new(post_params)
-    @post.user_id = current_user.id
-    @post.save
-  　redirect_to request.referer
+    @post = current_user.posts.new(post_params)
+    tag_list = params[:post][:name].split(nil)
+    if @post.save
+       @post.save_tags(tag_list)
+       redirect_to request.referer
+    else
+  　    redirect_to request.referer
+    end
   end
 
  def edit

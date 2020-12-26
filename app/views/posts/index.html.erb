@@ -1,3 +1,9 @@
+<h4>タグリスト</h4>
+ <% @tag_list.each do |tag| %>
+  <%= tag.name %>
+ <% end %>
+
+
 
 <% @post.each do |post| %>
  <%= attachment_image_tag(post, :post_image, style:"height: 50px; width: 50px;" ) %>
@@ -24,6 +30,9 @@
 
  <%= f.label "画象" %>
  <%= f.attachment_field :post_image %>
+
+ <%= f.label "タグ" %>
+ <%= f.text_field :name %>
 
  <%= f.label "本文" %>
  <%= f.text_field :content %>
