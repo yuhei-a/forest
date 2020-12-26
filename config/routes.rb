@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'post_comments/create'
-  get 'likes/create'
   root 'users#top'
   get "/about" => "users#about"
   devise_for :users

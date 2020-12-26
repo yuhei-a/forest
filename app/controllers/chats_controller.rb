@@ -24,12 +24,6 @@ class ChatsController < ApplicationController
     redirect_to request.referer
   end
 
-  def destroy
-    @chat = Chat.find(params[:id])
-    @chat.destroy
-    redirect_to request.referer
-  end
-
   private
   def chat_params
     params.require(:chat).permit(:message, :room_id)
