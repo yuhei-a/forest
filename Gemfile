@@ -67,3 +67,4 @@ gem "refile-mini_magick"
 gem 'kaminari','~> 1.2.1'
 gem "jquery-rails"
 gem 'devise'
+gem 'bootstrap','~> 4.1.3'

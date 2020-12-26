@@ -1,22 +1,33 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= attachment_image_tag(@post, :post_image, style:"height: 50px; width: 50px;" ) %></th>
+        <td><%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+        <td>><%= @post.title %></td>
+        <td><%= @post.content %></td>
+        <% @post.tags.each do |tag| %>
+        <td><%= tag.name %></td>
+        <% end %>
+        <td><div class="likes_<%= @post.id %>">
+              <%= render "likes/likes", post: @post %>
+            </div>
+        </td>
+        <td><%= render "relationships/follow", user: @user %></td>
+        <td><%= link_to "投稿編集", edit_post_path(@post) %></td>
+        <td><%= link_to "削除", post_path(@post), method: :delete %></td>
+    </tr>
+  </tbody>
+</table>
 
-<%= attachment_image_tag(@post, :post_image, style:"height: 50px; width: 50px;" ) %>
-<%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-<%= @post.title %>
-<%= @post.content %>
-<% @post.tags.each do |tag| %>
- <%= tag %>
-<% end %>
+    <div class="comment">
+      <%= render "post_comments/comments", post: @post %>
+    </div>
 
-  <%= render "likes/likes", post: @post %>
-  <div class="likes_<%= @post.id %>">
-    <%= render "relationships/follow", user: @user %>
-  </div>
-
-  <div class="comment">
-    <%= render "post_comments/comments", post: @post %>
-  </div>
- <%= link_to "投稿編集", edit_post_path(@post) %>
- <%= link_to "削除", post_path(@post), method: :delete %>
 
 
  <!--コメントフォーム --!>

@@ -5,37 +5,36 @@
    <i class="far fa-envelope">
      <%= link_to  "DM",user_chat_path(@user) %>
    </i>
+   <%= link_to "マイページを編集", edit_user_path(@user) %>
   <% end %>
 
-<taable>
-  <thead>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
-      <th>名前</th>
-      <th>プロフィール画象</th>
-      <th>性別</th>
-      <th>都道府県</th>
-      <th>星座</th>
-      <th>血液型</th>
-      <th>自己紹介</th>
-      <th><%= link_to "フォロー数", following_user_relationships_path(@user) %></th>
-      <th><%= link_to "フォロワー数", followed_user_relationships_path(@user) %></th>
-      <th>編集</th>
+      <th scope="col">名前</th>
+      <th scope="col">プロフィール画象</th>
+      <th scope="col">性別</th>
+      <th scope="col">都道府県</th>
+      <th scope="col">星座</th>
+      <th scope="col">血液型</th>
+      <th scope="col">自己紹介</th>
+      <th scope="col"><%= link_to "フォロー数", following_user_relationships_path(@user) %></th>
+      <th scope="col"><%= link_to "フォロワー数", followed_user_relationships_path(@user) %></th>
     </tr>
   </thead>
-
   <tbody>
     <tr>
-      <td><%= @user.name %></td>
-      <td><%= attachment_image_tag(@user, :profile_image, fallback: "no_image.jpg") %></td>
-      <td><%= @user.gender %></td>
-      <td><%= @user.prefectures %></td>
-      <td><%= @user.sign %></td>
-      <td><%= @user.bloodtype %></td>
-      <td><%= @user.introduction %></td>
-      <td><%= @user.follower.count %></td>
-      <td><%= @user.followed.count %></td>
-      <td><%= link_to "マイページを編集", edit_user_path(@user) %></td>
+      <th scope="row"><%= @user.name %></th>
+        <td><%= attachment_image_tag(@user, :profile_image, style:"height: 80px; width: 80px;", fallback: "no_image.jpg") %></td>
+        <td><%= @user.gender %></td>
+        <td><%= @user.prefectures %></td>
+        <td><%= @user.sign %></td>
+        <td><%= @user.bloodtype %></td>
+        <td><%= @user.introduction %></td>
+        <td><%= @user.follower.count %></td>
+        <td><%= @user.followed.count %></td>
+      </th>
     </tr>
   </tbody>
-</taable>
-</div>
+</table>
+

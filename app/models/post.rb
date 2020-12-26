@@ -5,7 +5,7 @@ class Post < ApplicationRecord
 
   #タグ機能
   has_many :tag_tables, dependent: :destroy
-  has_many :tags, through: :tag_tables, dependent: :destroy
+  has_many :tags, through: :tag_tables
 
   attachment :post_image
 
@@ -19,5 +19,19 @@ class Post < ApplicationRecord
     post_tag = Tag.find_or_create_by(name: new_name)
     self.tags << post_tag
    end
+  end
+
+  def save_tags(post_tags)
+    current_tags = self.tags.pluck(:name) unless self.tags.nil?
+    old_tags = current_tags - post_tags
+    new_tags = post_tags - current_tags
+
+    old_tags.each do |old|
+      self.tags.delete Tag.find_by(name: old)
+    end
+    new_tags.each do |new|
+      post_tag = Tag.find_or_create_by(name: new)
+      self.tags << post_tag
+    end
   end
 end

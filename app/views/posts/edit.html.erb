@@ -8,6 +8,9 @@
  <%= f.label "画象" %>
  <%= f.attachment_field :post_image %>
 
+ <%= f.label "タグ" %>
+ <%= f.text_field :name, value: @tag_list %>
+
  <%= f.label "本文" %>
  <%= f.text_field :content %>
 

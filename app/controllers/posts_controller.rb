@@ -26,12 +26,18 @@ class PostsController < ApplicationController
 
  def edit
    @post = Post.find(params[:id])
+   @tag_list = @post.tags.pluck(:name).join(nil)
  end
 
  def update
    @post = Post.find(params[:id])
-   @post.update(post_params)
-   redirect_to posts_path
+   tag_list = params[:post][:name].split(nil)
+   if @post.update_attributes(post_params)
+      @post.save_tags(tag_list)
+      redirect_to post_path(@post)
+   else
+      redirect_to post_path(@post)
+   end
  end
 
  def destroy
