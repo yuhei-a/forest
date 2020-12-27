@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'tags/create'
   root 'users#top'
   get "/about" => "users#about"
+  get "posts/ranking", "posts#ranking"
+  get "posts/image", "posts/image"
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users do
@@ -16,6 +18,5 @@ Rails.application.routes.draw do
     resources :post_comments, only: [:create,:destroy]
     resources :tags, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
-
   end
 end

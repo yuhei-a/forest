@@ -4,22 +4,34 @@
 
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <%= link_to "top", root_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "about", about_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "log in", new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "sign up", new_user_registration_path, class: "nav-link" %>
-        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "", new_post_path, class: "fas fa-pencil-alt nav-link" %>
+          </li>
+          <li class="nav-item">
+            <i class="far fa-bell nav-link"></i>
+          </li>
+          <span>
+           <%= link_to "", destroy_user_session_path, method: :delete, class: "fas fa-door-open nav-link" %>
+          </span>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "top", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "about", about_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "log in", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "sign up", new_user_registration_path, class: "nav-link" %>
+          </li>
       </ul>
-      <span class="navbar-text">
-        You're welcome!
-      </span>
+          <span class="navbar-text">
+            You're welcome!
+          </span>
+      <% end %>
     </div>
   </nav>
 </header>

@@ -3,16 +3,19 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <%= link_to "mypage", user_path(current_user), class: "nav-link" %>
+          <%= link_to "Me", user_path(current_user), class: "fas fa-user nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "ユーザーを見る", users_path, class: "nav-link" %>
+          <%= link_to "Everyone", users_path, class: "fas fa-users nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "みんなの投稿", posts_path, class: "nav-link" %>
+          <%= link_to "投稿一覧", posts_path, class: "far fa-folder-open nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          <%= link_to "ランキング", posts_ranking_path, class: "fas fa-crown nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "画像一覧", posts_image_path, class: "far fa-images nav-link" %>
         </li>
       </ul>
     </div>

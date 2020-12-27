@@ -1,0 +1,6 @@
+<% @posts.each do |ranking| %>
+
+  <%= ranking.title %>
+  <%= attachment_image_tag(ranking, :post_image, style:"height: 50px; width: 50px;" ) %>
+  <%= ranking.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+<% end %>

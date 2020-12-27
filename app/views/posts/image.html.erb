@@ -1,0 +1,4 @@
+<% @images.each do |image| %>
+
+  <%= attachment_image_tag(image, :post_image, style:"height: 300px; width: 300px;" ) %>
+<% end %>

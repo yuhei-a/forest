@@ -2,10 +2,10 @@
 <div class="container">
 
   <% if current_user != @user %>
-   <i class="far fa-envelope">
-     <%= link_to  "DM",user_chat_path(@user) %>
-   </i>
-   <%= link_to "マイページを編集", edit_user_path(@user) %>
+     <%= link_to "", user_chat_path(@user), class: "far fa-envelope" %>
+  <% end %>
+  <% if current_user == @user %>
+     <%= link_to "", edit_user_path(@user), class: "fas fa-user-edit" %>
   <% end %>
 
 <table class="table">

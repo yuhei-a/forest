@@ -1,0 +1,17 @@
+<%= form_with model:@postnew, url:posts_path, local:true do |f| %>
+
+ <%= f.label "タイトル" %>
+ <%= f.text_field :title %>
+
+ <%= f.label "画象" %>
+ <%= f.attachment_field :post_image %>
+
+ <%= f.label "タグ" %>
+ <%= f.text_field :name %>
+
+ <%= f.label "本文" %>
+ <%= f.text_field :content %>
+
+ <%= f.submit "投稿する" %>
+
+<% end %>

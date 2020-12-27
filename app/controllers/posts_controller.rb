@@ -2,15 +2,17 @@ class PostsController < ApplicationController
   def index
     @tag_list = Tag.all
     @post = Post.all
-    @postnew = current_user.posts.new
   end
 
   def show
     @post = Post.find(params[:id])
     @post_tag = @post.tags
-    @postnew = Post.new
     @post_comment = PostComment.new
     @user = @post.user
+  end
+
+  def new
+    @postnew = current_user.posts.new
   end
 
   def create
@@ -18,7 +20,7 @@ class PostsController < ApplicationController
     tag_list = params[:post][:name].split(nil)
     if @post.save
        @post.save_tags(tag_list)
-       redirect_to request.referer
+       redirect_to posts_path
     else
   　    redirect_to request.referer
     end
@@ -44,6 +46,14 @@ class PostsController < ApplicationController
    @postdetail = Post.find(params[:id])
    @postdetail.destroy
    redirect_to posts_path
+ end
+
+ def ranking
+   @posts = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
+ end
+
+ def image
+   @images = Post.select(:post_image_id)
  end
 
   private
