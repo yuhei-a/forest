@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'tags/create'
+  get 'search' => 'searches#search'
   root 'users#top'
   get "/about" => "users#about"
   get "posts/ranking", "posts#ranking"
@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   end
   resources :posts do
     resources :post_comments, only: [:create,:destroy]
-    resources :tags, only: [:create, :destroy]
+    resources :tags do
+      get 'posts', to: 'posts#search'
+    end
     resource :likes, only: [:create, :destroy]
   end
 end

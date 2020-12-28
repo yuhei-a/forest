@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   def index
-    @tag_list = Tag.all
     @post = Post.all
   end
 
@@ -46,6 +45,12 @@ class PostsController < ApplicationController
    @postdetail = Post.find(params[:id])
    @postdetail.destroy
    redirect_to posts_path
+ end
+
+ def search
+   @tag_list = Tag.all
+   @tag = Tag.find(params[:post_id])
+   @posts = @tag.posts.all
  end
 
  def ranking

@@ -11,7 +11,7 @@
         <td><%= @post.title %></td>
         <td><%= @post.content %></td>
         <% @post.tags.each do |tag| %>
-        <td><%= tag.name %></td>
+        <td class="btn btn-primary btn-sm"><%= link_to tag.name, post_tag_posts(post_tag_id: tag.id) %></td>
         <% end %>
         <td>
           <div class="likes_<%= @post.id %>">

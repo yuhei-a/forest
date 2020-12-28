@@ -11,6 +11,12 @@
           <li class="nav-item">
             <i class="far fa-bell nav-link"></i>
           </li>
+          <li class="nav-item">
+            <%= form_tag(search_path, method: :get) do %>
+              <%= text_field_tag 'item' %>
+              <%= submit_tag '検索' %>
+            <% end %>
+          </li>
           <span>
            <%= link_to "", destroy_user_session_path, method: :delete, class: "fas fa-door-open nav-link" %>
           </span>
