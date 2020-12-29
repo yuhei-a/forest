@@ -47,9 +47,10 @@ class PostsController < ApplicationController
    redirect_to posts_path
  end
 
+ #タグの検索
  def search
    @tag_list = Tag.all
-   @tag = Tag.find(params[:post_id])
+   @tag = Tag.find(params[:tag_id])
    @posts = @tag.posts.all
  end
 
@@ -59,6 +60,10 @@ class PostsController < ApplicationController
 
  def image
    @images = Post.select(:post_image_id)
+ end
+
+ def timeline
+
  end
 
   private
