@@ -1,28 +1,28 @@
 <%= form_with model:@user, url:user_path(@user), local:true do |f| %>
 
  <%= f.label "画象" %>
- <%= f.attachment_field :profile_image %>
+ <%= f.attachment_field :profile_image %><br>
 
  <%= f.label "name" %>
- <%= f.text_field :name %>
+ <%= f.text_field :name %><br>
 
  <%= f.label "introduction" %>
- <%= f.text_field :introduction %>
+ <%= f.text_field :introduction %><br>
 
  <%= f.label "gender" %>
- <%= f.select :gender, User.genders.keys, include_blank: true %>
+ <%= f.select :gender, User.genders.keys, include_blank: true %><br>
 
  <%= f.label "prefectures" %>
- <%= f.select :prefectures, User.prefectures.keys, include_blank: true %>
+ <%= f.select :prefectures, User.prefectures.keys, include_blank: true %><br>
 
  <%= f.label "bloodtype" %>
- <%= f.select :bloodtype, User.bloodtypes.keys, include_blank: true %>
+ <%= f.select :bloodtype, User.bloodtypes.keys, include_blank: true %><br>
 
  <%= f.label "sign" %>
- <%= f.select :sign, User.signs.keys, include_blank: true %>
+ <%= f.select :sign, User.signs.keys, include_blank: true %><br>
 
 
- <%= f.submit "編集" %>
+ <%= f.submit "編集" %><br>
 
 <% end %>
 

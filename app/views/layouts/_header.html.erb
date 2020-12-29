@@ -1,43 +1,26 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
-    <a class="navbar-brand">forest</a>
-
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "", new_post_path, class: "fas fa-pencil-alt nav-link" %>
-          </li>
-          <li class="nav-item">
-            <i class="far fa-bell nav-link"></i>
-          </li>
-          <li class="nav-item">
-            <%= form_tag(search_path, method: :get) do %>
-              <%= text_field_tag 'item' %>
-              <%= submit_tag '検索' %>
-            <% end %>
-          </li>
-          <span>
-           <%= link_to "", destroy_user_session_path, method: :delete, class: "fas fa-door-open nav-link" %>
-          </span>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "top", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "about", about_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "log in", new_user_session_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "sign up", new_user_registration_path, class: "nav-link" %>
-          </li>
-      </ul>
-          <span class="navbar-text">
-            You're welcome!
-          </span>
+<header class="blog-header py-3">
+  <div class="row flex-nowrap justify-content-between align-items-center">
+      <% if user_signed_in? %>
+        <div class="col-4 pt-1">
+          <a class="text-muted nav-item" ><%= link_to "", new_post_path, class: "fas fa-pencil-alt nav-link" %></a>
+        </div>
+        <div class="col-4 text-center">
+          <a class="blog-header-logo text-dark navbar-brand">forest</a>
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+          <a class="text-muted"></a>
+          <a class="nav-item"><%= link_to "", destroy_user_session_path, method: :delete, class: "fas fa-door-open nav-link" %></a>
+        </div>
+      <% else %>
+        <div class="col-4 pt-1">
+          <a class="text-muted nav-item" ><%= link_to "about", about_path, class: "nav-link" %></a>
+        </div>
+        <div class="col-4 text-center">
+          <a class="blog-header-logo text-dark navbar-brand">forest</a>
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+          <a class="nav-item"><%= link_to "sign up", new_user_registration_path, class: "nav-link" %></a>
+        </div>
       <% end %>
     </div>
-  </nav>
-</header>
+  </header>

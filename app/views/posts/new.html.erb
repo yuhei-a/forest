@@ -1,17 +1,18 @@
-<%= form_with model:@postnew, url:posts_path, local:true do |f| %>
 
- <%= f.label "タイトル" %>
- <%= f.text_field :title %>
+  <%= form_with model:@postnew, url:posts_path, local:true do |f| %>
 
- <%= f.label "画象" %>
- <%= f.attachment_field :post_image %>
+   <%= f.label "タイトル" %>
+   <%= f.text_field :title %><br>
 
- <%= f.label "タグ" %>
- <%= f.text_field :name %>
+   <%= f.label "画象" %>
+   <%= f.attachment_field :post_image %><br>
 
- <%= f.label "本文" %>
- <%= f.text_field :content %>
+   <%= f.label "タグ" %>
+   <%= f.text_field :name %><br>
 
- <%= f.submit "投稿する" %>
+   <%= f.label "本文" %>
+   <%= f.text_field :content %><br>
 
-<% end %>
+   <%= f.submit "投稿する" %><br>
+
+  <% end %>

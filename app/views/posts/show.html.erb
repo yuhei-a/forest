@@ -1,11 +1,4 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
+
       <th scope="row"><%= attachment_image_tag(@post, :post_image, style:"height: 50px; width: 50px;" ) %></th>
         <td><%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
         <td><%= @post.title %></td>
@@ -35,10 +28,9 @@
  <%= form_with model: [@post,@post_comment],url:post_post_comments_path(@post), remote: true do |f| %>
 
   <%= f.label :comment %>
-  <%= f.text_area :comment %>
+  <%= f.text_field :comment %>
 
  <%= f.submit "コメントする" %>
 
  <% end %>
-
 

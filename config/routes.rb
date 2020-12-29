@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'search' => 'searches#search'
   root 'users#top'
   get "/about" => "users#about"
   get "posts/ranking", "posts#ranking"
   get "posts/image", "posts/image"
+  get 'search' => 'searches#search'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users do
