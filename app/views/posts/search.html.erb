@@ -11,7 +11,7 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row"></th>
+      <th scope="row"><%= attachment_image_tag(post, :post_image, style:"height: 50px; width: 50px;" ) %></th>
         <td><%= post.title %></td>
         <td><%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
         <td><%= post.title %></td>

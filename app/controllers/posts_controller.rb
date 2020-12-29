@@ -49,7 +49,6 @@ class PostsController < ApplicationController
 
  #タグの検索
  def search
-   @tag_list = Tag.all
    @tag = Tag.find(params[:tag_id])
    @posts = @tag.posts.all
  end
