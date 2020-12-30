@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @post = @user.posts
+    @recent_post = Post.where(user_id: @post).order(created_at: :desc).limit(4)
   end
 
   def edit

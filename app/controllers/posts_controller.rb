@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.all
+    @posts = Post.page(params[:page]).per(5)
   end
 
   def show
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
  end
 
  def ranking
-   @posts = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
+   @posts = Kaminari.paginate_array(Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))).page(params[:page])
  end
 
  def image

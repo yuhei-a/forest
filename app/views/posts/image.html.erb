@@ -1,3 +1,8 @@
-<% @images.each do |image| %>
-    <%= attachment_image_tag(image, :post_image, style:"height: 300px; width: 300px;" ) %>
-<% end %>
+<div class="col-md-4">
+  <div class="card mb-4 shadow-sm">
+    <% @images.each do |image| %>
+      <%= attachment_image_tag(image, :post_image, style:"height: 300px; width: 300px;" ) %>
+    <% end %>
+  </div>
+</div>
+

@@ -1,36 +1,72 @@
+<aside class="col-md-3 blog-sidebar">
+ <div class="p-3 mb-3 bg-light rounded">
+    <h4 class="font-italic">About</h4>
+    <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+  </div>
 
-      <th scope="row"><%= attachment_image_tag(@post, :post_image, style:"height: 50px; width: 50px;" ) %></th>
-        <td><%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-        <td><%= @post.title %></td>
-        <td><%= @post.content %></td>
-        <% @post.tags.each do |tag| %>
-        <td><%= link_to tag.name, post_tag_posts_path(post_id: @post.id, tag_id: tag.id) %></td>
-        <% end %>
-        <td>
-          <div class="likes_<%= @post.id %>">
-            <%= render "likes/likes", post: @post %>
-          </div>
-        </td>
-        <td><%= render "relationships/follow", user: @user %></td>
-        <td><%= link_to "投稿編集", edit_post_path(@post) %></td>
-        <td><%= link_to "削除", post_path(@post), method: :delete %></td>
-    </tr>
-  </tbody>
-</table>
+  <div class="p-3">
+    <h4 class="font-italic">Archives</h4>
+    <ol class="list-unstyled mb-0">
+      <li><a href="#">March 2014</a></li>
+      <li><a href="#">February 2014</a></li>
+      <li><a href="#">January 2014</a></li>
+      <li><a href="#">December 2013</a></li>
+      <li><a href="#">November 2013</a></li>
+      <li><a href="#">October 2013</a></li>
+      <li><a href="#">September 2013</a></li>
+      <li><a href="#">August 2013</a></li>
+      <li><a href="#">July 2013</a></li>
+      <li><a href="#">June 2013</a></li>
+      <li><a href="#">May 2013</a></li>
+      <li><a href="#">April 2013</a></li>
+    </ol>
+  </div>
 
-    <div class="comment">
-      <%= render "post_comments/comments", post: @post %>
-    </div>
+  <div class="p-3">
+      <h4 class="font-italic">Elsewhere</h4>
+      <ol class="list-unstyled">
+        <li><a href="#">GitHub</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Facebook</a></li>
+      </ol>
+  </div>
+</aside>
 
+<div class="col-md-8 blog-main">
+  <h3 class="pb-3 mb-4 font-italic border-bottom">
+    投稿詳細
+  </h3>
+    <div class="blog-post">
+      <h2 class="blog-post-title"><%= @post.title %></h2>
+      <p><%= attachment_image_tag(@post, :post_image, style:"height: 50px; width: 50px;" ) %></p>
+        <p class="blog-post-meta"><%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %> by <span><%= @post.user.name %></span></p>
+        <p><% @post.tags.each do |tag| %>
+        <span><%= link_to tag.name, post_tag_posts_path(post_id: @post.id, tag_id: tag.id), class: "btn btn-primary" %></span>
+           <% end %>
+      </p>
+      <p><%= @post.content %></p>
+      <div class="likes_<%= @post.id %>">
+        <%= render "likes/likes", post: @post %>
+      </div>
+        <%= render "relationships/follow", user: @user %>
+      <p>
+          <% if current_user == @post.user %>
+           <%= link_to "投稿編集", edit_post_path(@post) %>
+           <%= link_to "削除", post_path(@post), method: :delete %>
+          <% end %>
+      </p>
+      <div class="comment">
+        <%= render "post_comments/comments", post: @post %>
+      </div>
+    </div><!-- /.blog-post -->
 
+    <nav class="blog-pagination">
 
- <!--コメントフォーム --!>
- <%= form_with model: [@post,@post_comment],url:post_post_comments_path(@post), remote: true do |f| %>
-
-  <%= f.label :comment %>
-  <%= f.text_field :comment %>
-
- <%= f.submit "コメントする" %>
-
- <% end %>
+    </nav>
+      <%= form_with model: [@post,@post_comment],url:post_post_comments_path(@post), remote: true do |f| %>
+         <%= f.label :comment %>
+         <%= f.text_field :comment %>
+      <%= f.submit "コメントする" %>
+      <% end %>
+</div>
 
