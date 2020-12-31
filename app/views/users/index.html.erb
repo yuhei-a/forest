@@ -1,20 +1,17 @@
 <div class="container">
-  <div class="card-deck mb-3 text-center">
-    <% @user.each do |users| %>
-      <div class="card mb-4 shadow-sm">
-        <div class="card-header">
-            <h4 class="my-0 font-weight-normal"><%= users.name %></h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title"><%= attachment_image_tag(users, :profile_image, style:"height: 80px; width: 80px;", fallback: "no_image.jpg") %></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li><%= users.gender %></li>
-              <li><%= users.introduction %></li>
-            </ul>
-            <%= link_to "", user_path(users), class: "fas fa-id-card btn btn-primary" %>
-          </div>
+ <% @user.each do |users| %>
+  <div class="card mb-4 shadow-sm text-center">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal"><%= users.name %></h4>
       </div>
-    <% end %>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title"><%= attachment_image_tag(users, :profile_image, style:"height: 80px; width: 80px;", class: "image-circle", fallback: "no_image.jpg") %></h1>
+        <ul class="list-unstyled mt-1 mb-4">
+          <li><%= users.introduction %></li>
+        </ul>
+        <%= link_to "", user_path(users), class: "fas fa-id-card btn btn-primary" %>
       </div>
   </div>
+ <% end %>
 </div>
+
