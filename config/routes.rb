@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
    end
    resources :chats, only: [:create,:show,:destroy]
+   resources :notifications, only: [:index, :destroy]
   end
   resources :posts do
     resources :post_comments, only: [:create,:destroy]

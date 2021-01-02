@@ -67,10 +67,6 @@ class PostsController < ApplicationController
    @images = Post.select(:post_image_id)
  end
 
- def timeline
-
- end
-
   private
   def post_params
   params.require(:post).permit(:title, :content, :post_image)
