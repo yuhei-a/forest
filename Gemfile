@@ -68,3 +68,8 @@ gem 'kaminari','~> 1.2.1'
 gem "jquery-rails"
 gem 'devise'
 gem 'bootstrap','~> 4.1.3'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
