@@ -1,0 +1,23 @@
+<% if @following != nil %>
+   <table class="table border-bottom">
+     <thead>
+         <tr>
+         <th>プロフィール画象</th>
+         <th>名前</th>
+         <th>リンク</th>
+       </tr>
+     </thead>
+     <% @following.each do |following_user| %>
+       <tbody>
+         <tr>
+           <td><%= attachment_image_tag(following_user, :profile_image, style:"height: 50px; width: 50px;" ) %></td>
+           <td><%= following_user.name %></td>
+           <td><%= link_to "詳細", user_path(following_user) %></td>
+         </tr>
+       </tbody>
+     <% end %>
+   </table>
+<% else %>
+    <p>現在フォローしているユーザーはいません。</p>
+    <p>気になった方をフォローしてみましょう！</p>
+<% end %>

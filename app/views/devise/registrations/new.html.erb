@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Enter the forest</h2>
 
 <div class="form-body">
 <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
@@ -6,7 +6,6 @@
 
   <div class="form-group has-icon">
       <label class="control-label sr-only" for="inputName">Name</label>
-
       <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName", placeholder:"名前" %>
       <span class="fa fa-user form-control-icon" aria-hidden="true"></span>
     </div>
@@ -29,4 +28,3 @@
    <% end %>
   </div>
 
-<%= render "devise/shared/links" %>

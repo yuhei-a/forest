@@ -1,0 +1,16 @@
+<div class="nav-scroller py-1 mb-2">
+  <% if user_signed_in? %>
+    <nav class="nav d-flex justify-content-between">
+      <div class="p-2 text-muted"><%= link_to "Me", user_path(current_user), class: "fas fa-user nav-link" %></div>
+      <div class="p-2 text-muted"><%= link_to "Everyone", users_path, class: "fas fa-users nav-link" %></div>
+      <div class="p-2 text-muted"><%= link_to "投稿一覧", posts_path, class: "far fa-folder-open nav-link" %></div>
+      <div class="p-2 text-muted"><%= link_to "ランキング", posts_ranking_path, class: "fas fa-crown nav-link" %></div>
+      <span>
+        <%= form_tag(search_path, method: :get) do %>
+          <%= text_field_tag 'item' %>
+          <%= submit_tag '検索' %>
+        <% end %>
+      </span>
+    </nav>
+  <% end %>
+</div>
