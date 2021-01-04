@@ -17,11 +17,7 @@
               <p class="mb-0">
                 <% if current_user != @user %>
                   <p><%= link_to "", user_chat_path(@user), class: "far fa-envelope btn btn-primary btn-lg" %>
-                  <% if current_user.following?(@user) %>
-                    <%= link_to "", user_relationships_path(@user.id), method: :delete, class: "btn btn-primary btn-lg btn-md fas fa-user-slash" %>
-                  <% else %>
-                    <%= link_to "", user_relationships_path(@user.id), method: :post, class: "btn btn-primary btn-lg fas fa-user-plus" %></p>
-                  <% end %>
+                  <%= render "relationships/follow", user: @user %>
                 <% end %>
               </p>
     </div>

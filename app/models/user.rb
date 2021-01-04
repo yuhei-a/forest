@@ -19,6 +19,10 @@ class User < ApplicationRecord
   has_many :chats
   has_many :user_rooms
 
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :encrypted_password, presence: true
+
   #フォロー
   def follow(user_id)
     follower.create(followed_id: user_id)

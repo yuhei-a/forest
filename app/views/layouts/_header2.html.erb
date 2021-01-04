@@ -5,7 +5,6 @@
       <div class="p-2 text-muted"><%= link_to "Everyone", users_path, class: "fas fa-users nav-link" %></div>
       <div class="p-2 text-muted"><%= link_to "投稿一覧", posts_path, class: "far fa-folder-open nav-link" %></div>
       <div class="p-2 text-muted"><%= link_to "ランキング", posts_ranking_path, class: "fas fa-crown nav-link" %></div>
-      <div class="p-2 text-muted"><%= link_to "画像一覧", posts_image_path, class: "far fa-images nav-link" %></div>
       <span>
         <%= form_tag(search_path, method: :get) do %>
           <%= text_field_tag 'item' %>

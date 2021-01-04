@@ -12,9 +12,17 @@
       </p>
       <p><%= @post.content %></p>
       <div class="likes_<%= @post.id %>">
-        <%= render "likes/likes", post: @post %>
+        <%= render "likes/likes", post: @post %><br>
       </div>
-        <%= render "relationships/follow", user: @user %>
+      <div class="sns-share">
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0" nonce="a8ip3WA7"></script>
+        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
+        <div class="line-it-button" data-lang="ja" data-type="share-b" data-ver="3" data-url="https://social-plugins.line.me/ja/how_to_install#lineitbutton" data-color="default" data-size="small" data-count="false" style="display: none;"></div>
+        <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+        <%= link_to '', "https://twitter.com/share?url=#{request.url}", class: "fab fa-twitter" %>
+      </div><br>
+      <%= render "relationships/follow", user: @user %>
       <p>
           <% if current_user == @post.user %>
            <%= link_to "投稿編集", edit_post_path(@post) %>

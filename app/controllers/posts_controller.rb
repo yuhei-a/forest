@@ -25,7 +25,7 @@ class PostsController < ApplicationController
        @post.save_tags(tag_list)
        redirect_to posts_path
     else
-  　    redirect_to request.referer
+      redirect_to posts_path
     end
   end
 
@@ -61,10 +61,6 @@ class PostsController < ApplicationController
    @posts = Kaminari.paginate_array(Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))).page(params[:page])
    @recent_post = Post.limit(5).order(" created_at DESC ")
    @other_user = User.order("RANDOM()").last
- end
-
- def image
-   @images = Post.select(:post_image_id)
  end
 
   private
