@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @recent_post = Post.limit(5).order(" created_at DESC ")
+    @other_user = User.order("RANDOM()").last
   end
 
   def edit
@@ -16,7 +18,6 @@ class UsersController < ApplicationController
     @user.update(user_params)
     redirect_to user_path(current_user)
   end
-
 
   def top; end
 

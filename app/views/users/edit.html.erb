@@ -1,28 +1,28 @@
 <%= form_with model:@user, url:user_path(@user), local:true do |f| %>
 
  <%= f.label "画象" %>
- <%= f.attachment_field :profile_image %>
+ <%= f.attachment_field :profile_image, class: "form-control-file" %><br>
 
- <%= f.label "name" %>
- <%= f.text_field :name %>
+ <%= f.label "名前" %>
+ <%= f.text_field :name, class: "form-control" %><br>
 
- <%= f.label "introduction" %>
- <%= f.text_field :introduction %>
+ <%= f.label "自己紹介" %>
+ <%= f.text_area :introduction, class: "form-control" %><br>
 
- <%= f.label "gender" %>
- <%= f.select :gender, User.genders.keys, include_blank: true %>
+ <%= f.label "性別" %>
+ <%= f.select :gender, User.genders.keys, include_blank: true %><br>
 
- <%= f.label "prefectures" %>
- <%= f.select :prefectures, User.prefectures.keys, include_blank: true %>
+ <%= f.label "都道府県" %>
+ <%= f.select :prefectures, User.prefectures.keys, include_blank: true %><br>
 
- <%= f.label "bloodtype" %>
- <%= f.select :bloodtype, User.bloodtypes.keys, include_blank: true %>
+ <%= f.label "血液型" %>
+ <%= f.select :bloodtype, User.bloodtypes.keys, include_blank: true %><br>
 
- <%= f.label "sign" %>
- <%= f.select :sign, User.signs.keys, include_blank: true %>
+ <%= f.label "星座" %>
+ <%= f.select :sign, User.signs.keys, include_blank: true %><br>
 
 
- <%= f.submit "編集" %>
+ <%= f.submit "編集" %><br>
 
 <% end %>
 
