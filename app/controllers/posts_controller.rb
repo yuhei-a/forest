@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   def index
     @posts = Post.page(params[:page]).per(5)
     @recent_post = Post.limit(5).order(" created_at DESC ")
-    @other_user = User.order("RANDOM()").last
   end
 
   def show
@@ -11,7 +10,6 @@ class PostsController < ApplicationController
     @post_comment = PostComment.new
     @user = @post.user
     @recent_post = Post.limit(5).order(" created_at DESC ")
-    @other_user = User.order("RANDOM()").last
   end
 
   def new
@@ -60,7 +58,6 @@ class PostsController < ApplicationController
  def ranking
    @posts = Kaminari.paginate_array(Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))).page(params[:page])
    @recent_post = Post.limit(5).order(" created_at DESC ")
-   @other_user = User.order("RANDOM()").last
  end
 
   private

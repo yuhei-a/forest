@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   def index
     @user = User.all
+    @recent_post = Post.limit(5).order(" created_at DESC ")
   end
 
   def show
     @user = User.find(params[:id])
     @recent_post = Post.limit(5).order(" created_at DESC ")
-    @other_user = User.order("RANDOM()").last
   end
 
   def edit

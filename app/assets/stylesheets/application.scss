@@ -15,18 +15,90 @@
  @import "bootstrap";
 
  li {
-   list-style: none;
+ list-style: none;
  }
 
+
 .blog-header {
- background-color: #003300;
+ color: white;
+ background-color: #008000;
 }
 
 
 .nav-scroller {
- background-color: #008800;
+ background-color: white;
 }
 
 .footer {
  background-color: #EEEEEE;
+}
+
+.logo {
+ background-image: url("logo.jpg");
+}
+
+.top {
+ background-image: url("top.jpg");
+ background-size: cover;
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-color: #999;
+ height: 500px;
+ width: 1150px;
+}
+
+.top-2 {
+ background-image: url("top-2.jpg");
+ background-size: cover;
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-color: #999;
+ height: 500px;
+ width: 700px;
+}
+
+.top-3 {
+ background-image: url("top-3.jpg");
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-color: #999;
+ height: 500px;
+ width: 700px;
+}
+
+.about {
+ background-image: url("forest-image.jpg");
+ background-size: cover;
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-color: #999;
+ height: 500px;
+}
+
+.about-container {
+ color: white;
+}
+
+.post-heart {
+ background-image: url("post-heart");
+ background-size:cover;
+ height: 220px;
+ width: 348px;
+}
+.good-image {
+ background-image: url("good.jpg");
+ background-size:cover;
+ height: 220px;
+ width: 348px;
+}
+
+.share-favorite {
+ background-image: url("share-favorite.jpg");
+ background-size:cover;
+ height: 220px;
+ width: 348px;
 }

@@ -13,9 +13,11 @@ class RelationshipsController < ApplicationController
   #フォロー一覧
   def following
    @following = current_user.following_user
+   @recent_post = Post.limit(5).order(" created_at DESC ")
   end
 
   def followed
    @followed = current_user.followed_user
+   @recent_post = Post.limit(5).order(" created_at DESC ")
   end
 end
