@@ -1,30 +1,13 @@
-<div class="row">
-  <main role="main">
-　  <section class="top jumbotron text-center">
-      <div class="top-container">
-        <p class="top-mes">ようこそ</p>
-      </div>
-    </section>
-
-    <div class="d-md-flex my-md-5 pl-md-5">
-      <div class="top-2">
-      </div>
-      <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center">
-        <div class="my-3 py-3">
-          <h2>森の中へ入ってみましょう。</h2>
-          <p class="lead">そこには何かがあるかもしれません。</p>
+<body class="top-body">
+    <div class="cover-container">
+      <div class="top-text masthead">
+        <div class="inner">
+          <h3>Forest</h3>
         </div>
+        <p class="lead">Welcome to forest!</p>
+        <p class="lead">
+          <%= link_to "log inはこちら", new_user_session_path, class: "btn btn-primary" %>
+        </p>
       </div>
     </div>
-
-    <div class="d-md-flex my-md-5 pl-md-5">
-      <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 py-3">
-          <h2>今、何を考えていますか？</h2>
-          <p class="lead">その気持ちはどこかに置いてもいいのかもしれません。</p>
-        </div>
-      </div>
-      <div class="top-3"></div>
-    </div>
-  </main>
-</div>
+</body>
