@@ -1,4 +1,7 @@
-<% if @following != nil %>
+<%= render "layouts/sidebar" %>
+
+<div class="col-md-6">
+  <% if @following != nil %>
    <table class="table border-bottom">
      <thead>
          <tr>
@@ -10,7 +13,7 @@
      <% @following.each do |following_user| %>
        <tbody>
          <tr>
-           <td><%= attachment_image_tag(following_user, :profile_image, style:"height: 50px; width: 50px;" ) %></td>
+           <td><%= attachment_image_tag(following_user, :profile_image, style:"height: 45px; width: 45px;" ) %></td>
            <td><%= following_user.name %></td>
            <td><%= link_to "詳細", user_path(following_user) %></td>
          </tr>
@@ -21,10 +24,11 @@
     <p>現在フォローしているユーザーはいません。</p>
     <p>気になった方をフォローしてみましょう！</p>
 <% end %>
+</div>
 
 
 <aside class="col-md-3 blog-sidebar">
- <div class="p-3 mb-3 bg-light rounded">
+ <div class="p-3 mb-3 rounded bg-dark">
     <h4 class="font-italic">サイト内検索</h4>
     <ol class="list-unstyled">
         <li>

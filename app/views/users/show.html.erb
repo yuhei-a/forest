@@ -1,23 +1,7 @@
-<nav class="bg-dark sidebar">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-          <li class="nav-item"><%= link_to "", user_path(current_user), class: "fas fa-user nav-link" %></li>
-          <li class="nav-item"><%= link_to "", users_path, class: "fas fa-users nav-link" %></li>
-          <li class="nav-item"><%= link_to "", posts_path, class: "far fa-folder-open nav-link" %></li>
-          <li class="nav-item"><%= link_to "", posts_ranking_path, class: "fas fa-crown nav-link" %></li>
-          <div class="sns-share">
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0" nonce="a8ip3WA7"></script>
-        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
-        <div class="line-it-button" data-lang="ja" data-type="share-b" data-ver="3" data-url="https://social-plugins.line.me/ja/how_to_install#lineitbutton" data-color="default" data-size="small" data-count="false" style="display: none;"></div>
-        <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-        <%= link_to '', "https://twitter.com/share?url=#{request.url}", class: "fab fa-twitter" %>
-      </div><br>
-        </ul>
-      </div>
-</nav>
+<%= render "layouts/sidebar" %>
 
-<div class="col-md-8">
+<div class="col-md-6">
+  <h5>プロフィール</h5>
   <div class="card flex-md-row mb-4 shadow-sm h-md-250 bg-dark">
     <div class="card-body d-flex flex-column align-items-start">
               <strong class="d-inline-block mb-2"><%= @user.name %></strong>
@@ -33,39 +17,44 @@
               <% if current_user == @user %>
               <p><%= link_to "", edit_user_path(@user), class: "fas fa-user-edit btn btn-primary" %></p>
               <% end %>
-              <p class="mb-0">
-                <% if current_user != @user %>
-                  <p><%= link_to "", user_chat_path(@user), class: "far fa-envelope btn btn-primary btn-lg" %>
-                  <%= render "relationships/follow", user: @user %>
-                <% end %>
-              </p>
+              <% if current_user != @user %>
+              <p><%= link_to "", user_chat_path(@user), class: "far fa-envelope btn btn-primary btn-lg" %></p>
+              <p><%= render "relationships/follow", user: @user %></p>
+              <% end %>
+
     </div>
-    <%= attachment_image_tag(@user, :profile_image, style:"height: 350px; width: 350px;", fallback: "no_image.jpg") %>
+    <%= attachment_image_tag(@user, :profile_image, style:"height: 320px; width: 320px;", fallback: "no_image.jpg") %>
   </div>
+
+   <h5>投稿一覧</h5>
+   <% @my_posts.each do |my_post| %>
+    <div class="card flex-md-row mb-4 shadow-sm h-md-250 bg-dark">
+      <div class="card-body d-flex flex-column align-items-start">
+         <strong class="d-inline-block mb-2"><%= attachment_image_tag(my_post, :post_image, style:"height: 100px; width: 100px;" ) %></strong>
+            <h3 class="mb-0">
+              <%= my_post.user.name %>
+            </h3>
+            <h3 class="mb-0">
+              <%= my_post.title %>
+            </h3>
+            <div class="mb-1"><%= my_post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+            <div class="card-text">
+              <div class="likes_<%= my_post.id %>">
+               <%= render "likes/likes", post: my_post %>
+              </div>
+            </div>
+            <div class="card-text mb-auto">
+              <i class="far fa-comment-dots">
+                <%= my_post.post_comments.count %>
+              </i>
+            </div>
+            <div class="card-text mb-auto">
+              <%= link_to "続きを読む", post_path(my_post) %>
+            </div>
+      </div>
+    </div>
+    <% end %>
 </div>
 
-<aside class="col-md-3 blog-sidebar">
-  <div class="p-3 mb-3 bg-light rounded bg-dark">
-    <h4 class="font-italic">サイト検索</h4>
-    <ol class="list-unstyled">
-      <li>
-        <%= form_tag(search_path, method: :get) do %>
-          <%= text_field_tag 'item' %>
-          <%= submit_tag '検索' %>
-        <% end %>
-      </li>
-    </ol>
-  </div>
-
-
-  <div class="p-3 mb-3 rounded bg-dark">
-    <h4 class="font-italic">最新の投稿</h4>
-    <ol class="list-unstyled">
-      <% @recent_post.each do |post| %>
-      <li><%= link_to post.created_at.strftime("%Y-%m-%d"), post_path(post) %></li>
-      <% end %>
-    </ol>
-  </div>
-
-</aside>
+<%= render "layouts/blog_infomation" %>
 

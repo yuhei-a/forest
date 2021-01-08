@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.page(params[:page]).per(5)
+    @like_posts = Like.where(user_id: current_user.id)
     @recent_post = Post.limit(5).order(" created_at DESC ")
   end
 
@@ -9,6 +10,7 @@ class PostsController < ApplicationController
     @post_tag = @post.tags
     @post_comment = PostComment.new
     @user = @post.user
+    @like_posts = Like.where(user_id: current_user.id)
     @recent_post = Post.limit(5).order(" created_at DESC ")
   end
 
@@ -53,10 +55,12 @@ class PostsController < ApplicationController
  def search
    @tag = Tag.find(params[:tag_id])
    @posts = @tag.posts.all
+   @like_posts = Like.where(user_id: current_user.id)
  end
 
  def ranking
    @posts = Kaminari.paginate_array(Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))).page(params[:page])
+   @like_posts = Like.where(user_id: current_user.id)
    @recent_post = Post.limit(5).order(" created_at DESC ")
  end
 

@@ -1,5 +1,4 @@
-
-  <% post.post_comments.each do |post_comments| %>
+　<% post.post_comments.each do |post_comments| %>
 
     <%= post_comments.user.name %>
     <%= attachment_image_tag(post_comments.user, :profile_image, style:"height: 50px; width:50px;", fallback: "no_image.jpg") %>

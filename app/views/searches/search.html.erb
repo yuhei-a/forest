@@ -1,18 +1,27 @@
 <% if @users.present? && @posts.present? %>
-  <h3>【検索結果】検索ワード:<%= @item %></h3>
-  <h3>ユーザー</h3>
-  <%= render "searches/users_index" %>
-  <h3>投稿内容</h3>
-  <%= render "searches/post_index" %>
+  <%= render "layouts/sidebar" %>
+  <div class="col-md-9">
+    <h3>【検索結果】検索ワード:<%= @item %></h3>
+    <h3>ユーザー</h3>
+    <%= render "searches/users_index" %>
+    <h3>投稿内容</h3>
+    <%= render "searches/post_index" %>
+  </div>
 <% elsif @users.present? && @posts.empty? %>
-  <h3>【ユーザーの検索結果】検索ワード:<%= @item %></h3>
-  <h3>ユーザー名</h3>
-  <%= render "searches/users_index" %>
+  <%= render "layouts/sidebar" %>
+  <div class="col-md-9">
+    <h3>【ユーザーの検索結果】検索ワード:<%= @item %></h3>
+    <h3>ユーザー名</h3>
+    <%= render "searches/users_index" %>
+  </div>
 
 <% elsif @users.empty? && @posts.present? %>
-  <h3>【投稿の検索結果】検索ワード:<%= @item %></h3>
-  <h3>投稿内容</h3>
-  <%= render "searches/post_index" %>
+  <%= render "layouts/sidebar" %>
+  <div class="col-md-9">
+    <h3>【投稿の検索結果】検索ワード:<%= @item %></h3>
+    <h3>投稿内容</h3>
+    <%= render "searches/post_index" %>
+  </div>
 
 <% else %>
   <h3><%= @item %>に該当はありません</h3>
