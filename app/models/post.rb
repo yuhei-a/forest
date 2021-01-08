@@ -7,9 +7,6 @@ class Post < ApplicationRecord
   has_many :tag_tables, dependent: :destroy
   has_many :tags, through: :tag_tables
 
-  #通知機能
-  has_many :notifications, dependent: :destroy
-
   attachment :post_image
 
   validates :title, presence: true, length: { in: 2..80 }

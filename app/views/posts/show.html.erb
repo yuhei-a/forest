@@ -37,7 +37,7 @@
         <p>
           <% if current_user == @post.user %>
             <%= link_to "投稿編集", edit_post_path(@post) %>
-            <%= link_to "削除", post_path(@post), method: :delete %>
+            <%= link_to "", post_path(@post), class: "fas fa-trash fa-2x", method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
           <% end %>
         </p>
       </div>
@@ -55,12 +55,13 @@
         </div>
       </div>
 
-      <%= form_with model: [@post,@post_comment],url:post_post_comments_path(@post), remote: true do |f| %>
-         <%= f.label :comment %>
-         <%= f.text_area :comment, class: "form-control" %><br>
-
-      <%= f.submit "コメントする" %><br>
-      <% end %>
+      <div class="mb-3">
+        <%= form_with model: [@post,@post_comment],url:post_post_comments_path(@post), remote: true do |f| %>
+          <%= f.label :comment %>
+          <%= f.text_area :comment, class: "form-control" %><br>
+          <%= f.submit "コメントする" %>
+        <% end %>
+      </div>
   </div>
 
 
