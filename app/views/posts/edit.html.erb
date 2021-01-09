@@ -1,20 +1,28 @@
-<div class="form-group-row text-center">
+<body class="main-background">
 
-  <%= form_with model:@post, url:post_path(@post), local:true do |f| %>
+<%= render "layouts/sidebar" %>
 
-   <%= f.label "タイトル" %>
-   <%= f.text_field :title, class: "form-control" %><br>
+<div class="col-md-9">
+  <div class="post-img">
+    <h3>投稿編集</h3>
+    <%= form_with model:@post, url:post_path(@post), local:true do |f| %>
 
-   <%= f.label "画象" %>
-   <%= f.attachment_field :post_image, class: "form-control-file" %><br>
+     <%= f.label "タイトル" %>
+     <%= f.text_field :title, class: "form-control" %><br>
 
-   <%= f.label "タグ" %>
-   <%= f.text_field :name, value: @tag_list, placeholder: "スペースを開けるとタグが複数付けれます。", class: "form-control" %><br>
+     <%= f.label "画象" %>
+     <%= f.attachment_field :post_image, class: "form-control-file" %><br>
 
-   <%= f.label "本文" %>
-   <%= f.text_field :content, class: "form-control" %><br>
+     <%= f.label "タグ" %>
+     <%= f.text_field :name, value: @tag_list, placeholder: "スペースを開けるとタグが複数付けれます。", class: "form-control" %><br>
 
-   <%= f.submit "更新" %><br>
+     <%= f.label "本文" %>
+     <%= f.text_field :content, class: "form-control" %><br>
 
-  <% end %>
+     <%= f.submit "更新" %>
+    <% end %>
+      <br>
+  </div>
 </div>
+
+</body>

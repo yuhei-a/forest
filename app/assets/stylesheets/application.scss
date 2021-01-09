@@ -115,14 +115,22 @@ body {
 }
 
 .sign-in {
- background-image: url("sign-in");
+ background-image: url("sign-in.jpg");
  background-size: cover;
  opacity: 0.8;
 }
 
-.posts-index {
- background-image: url("posts-index");
+.profile-img {
+ background-image: url("profile-img.jpg");
+ backgorund-size: cover;
+}
+
+.post-img {
+ background-image: url("post-img.jpg");
+ backgorund-size: cover;
+}
+
+.main-background {
+ background-image: url("main-background.jpg");
  background-size: cover;
- height: 300px;
- width: 800px;
 }

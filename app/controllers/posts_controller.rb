@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 
   def new
     @postnew = current_user.posts.new
+    @like_posts = Like.where(user_id: current_user.id)
   end
 
   def create
@@ -32,6 +33,7 @@ class PostsController < ApplicationController
  def edit
    @post = Post.find(params[:id])
    @tag_list = @post.tags.pluck(:name).join(nil)
+   @like_posts = Like.where(user_id: current_user.id)
  end
 
  def update

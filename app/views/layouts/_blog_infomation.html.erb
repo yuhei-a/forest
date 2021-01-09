@@ -1,5 +1,5 @@
 <aside class="col-md-3 blog-sidebar">
-  <div class="p-3 mb-3 bg-light rounded bg-dark">
+  <div class="p-3 mb-3 rounded bg-dark">
     <h4 class="font-italic">サイト検索</h4>
     <ol class="list-unstyled">
       <li>
@@ -18,6 +18,13 @@
       <% @recent_post.each do |post| %>
       <li><%= link_to post.created_at.strftime("%Y-%m-%d"), post_path(post) %></li>
       <% end %>
+    </ol>
+  </div>
+
+  <div class="p-3 mb-3 rounded bg-dark">
+    <h4 class="font-italic">タグで検索</h4>
+    <ol class="list-unstyled">
+
     </ol>
   </div>
 </aside>

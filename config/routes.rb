@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get "posts/ranking", "posts#ranking"
   get 'search' => 'searches#search'
   devise_for :users
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/guest_sessions#new_guest'
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users do
     resource :relationships, only: [:create, :destroy] do

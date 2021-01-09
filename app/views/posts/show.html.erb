@@ -1,26 +1,28 @@
+<body class="main-background">
+
 <div class="col-md-3 sidebar">
-  <nav class="bg-dark">
+  <nav class="bg-transparent">
     <div class="sidebar-sticky">
-      <ul class="nav flex-column">
+      <ul class="nav flex-column border-top border-bottom text-center">
         <li class="nav-item"><%= link_to "マイページ", user_path(current_user), class: "fas fa-user nav-link" %></li>
         <li class="nav-item"><%= link_to "森のユーザー", users_path, class: "fas fa-users nav-link" %></li>
         <li class="nav-item"><%= link_to "みんなの投稿", posts_path, class: "far fa-folder-open nav-link" %></li>
         <li class="nav-item"><%= link_to "いいねランキング", posts_ranking_path, class: "fas fa-crown nav-link" %></li>
       </ul>
 
-      <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4">
-        <span>いいねした投稿</span>
+      <h6 class="sidebar-heading justify-content-between align-items-center text-center pt-1">
+        <i class="fas fa-paperclip">あなたがいいねした投稿</i>
       </h6>
       <ul class="nav flex-column">
         <% @like_posts.each do |like_post| %>
-        <li class="nav-item"><%= link_to like_post.post.title, post_path(like_post.post.id), class: "nav-link" %></li>
+        <li class="nav-item border-top text-center"><%= link_to like_post.post.title, post_path(like_post.post.id), class: "nav-link" %></li>
         <% end %>
       </ul>
     </div>
   </nav>
 </div>
 
-  <div class="col-md-6 bg-dark">
+  <div class="col-md-6  post-img">
     <h3 class="pb-4 mb-4 font-italic border-bottom text-center">投稿詳細</h3>
       <div class="blog-post">
         <h2 class="blog-post-title"><%= @post.title %></h2>
@@ -33,7 +35,7 @@
         <div class="likes_<%= @post.id %>">
           <%= render "likes/likes", post: @post %>
         </div><br>
-        <%= render "relationships/follow", user: @user %>
+        <p><%= render "relationships/follow", user: @user %></p><br>
         <p>
           <% if current_user == @post.user %>
             <%= link_to "投稿編集", edit_post_path(@post) %>
@@ -42,8 +44,8 @@
         </p>
       </div>
 
-      <div class="my-3 p-3 bg-dark rounded shadow-sm">
-        <h6 class="border-bottom border-gray pb-2 mb-0">コメント一覧</h6>
+      <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h6 class="border-bottom border-gray pb-2 mb-0 text-dark">コメント一覧</h6>
         <div class="media pt-3">
           <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
             <div class="d-flex justify-content-between align-items-center w-100">
@@ -66,3 +68,5 @@
 
 
  <%= render "layouts/blog_infomation" %>
+
+</body>
