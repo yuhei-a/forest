@@ -3,7 +3,7 @@
 <div class="col-md-9">
   <div class="post-img">
     <h3>投稿ページ</h3>
-    <%= form_with model:@postnew, url:posts_path, local:true do |f| %>
+    <%= form_with model:@postnew, url:posts_path, local: true do |f| %>
 
      <%= f.label "タイトル" %>
      <%= f.text_field :title, class: "form-control" %><br>

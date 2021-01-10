@@ -3,6 +3,7 @@ class PostsController < ApplicationController
     @posts = Post.page(params[:page]).per(5)
     @like_posts = Like.where(user_id: current_user.id)
     @recent_post = Post.limit(5).order(" created_at DESC ")
+    @tag_list = Tag.joins(:posts)
   end
 
   def show
@@ -12,11 +13,13 @@ class PostsController < ApplicationController
     @user = @post.user
     @like_posts = Like.where(user_id: current_user.id)
     @recent_post = Post.limit(5).order(" created_at DESC ")
+    @tag_list = Tag.joins(:posts)
   end
 
   def new
     @postnew = current_user.posts.new
     @like_posts = Like.where(user_id: current_user.id)
+    @tag_list = Tag.joins(:posts)
   end
 
   def create
@@ -26,7 +29,8 @@ class PostsController < ApplicationController
        @post.save_tags(tag_list)
        redirect_to posts_path
     else
-      redirect_to posts_path
+      @like_posts = Like.where(user_id: current_user.id)
+      render :new
     end
   end
 
@@ -40,7 +44,7 @@ class PostsController < ApplicationController
    @post = Post.find(params[:id])
    tag_list = params[:post][:name].split(nil)
    if @post.update_attributes(post_params)
-      @post.save_tags(tag_list)
+      @post.update_tags(tag_list)
       redirect_to post_path(@post)
    else
       redirect_to post_path(@post)
@@ -58,12 +62,15 @@ class PostsController < ApplicationController
    @tag = Tag.find(params[:tag_id])
    @posts = @tag.posts.all
    @like_posts = Like.where(user_id: current_user.id)
+   @recent_post = Post.limit(5).order(" created_at DESC ")
+   @tag_list = Tag.joins(:posts)
  end
 
  def ranking
    @posts = Kaminari.paginate_array(Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))).page(params[:page])
    @like_posts = Like.where(user_id: current_user.id)
    @recent_post = Post.limit(5).order(" created_at DESC ")
+   @tag_list = Tag.joins(:posts)
  end
 
   private

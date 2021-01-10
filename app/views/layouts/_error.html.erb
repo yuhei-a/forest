@@ -1,0 +1,6 @@
+<% if object.errors.any? %>
+  <%= object.errors.count %><p>error</p>
+    <% objec.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+<% end %>

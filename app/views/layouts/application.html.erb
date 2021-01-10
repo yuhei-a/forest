@@ -13,10 +13,12 @@
   <body>
     <%= render "layouts/header" %>
     <br>
+    <div class="text-center"><%= render "layouts/flash_message" %></div>
     <div class="container">
       <div class="row">
        <%= yield %>
       </div>
     </div>
   </body>
+  <%= render "layouts/footer" %>
 </html>

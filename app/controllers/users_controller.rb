@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     @user = User.all
     @recent_post = Post.limit(5).order(" created_at DESC ")
     @like_posts = Like.where(user_id: current_user.id)
+    @tag_list = Tag.joins(:posts)
   end
 
   def show
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
     @like_post = Like.where(user_id: current_user.id)
     @recent_post = Post.limit(5).order(" created_at DESC ")
     @like_posts = Like.where(user_id: current_user.id)
+    @tag_list = Tag.joins(:posts)
   end
 
   def edit

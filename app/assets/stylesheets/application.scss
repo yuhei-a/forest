@@ -32,7 +32,10 @@ body {
 }
 
 .top-content {
- position: center center;
+ background-color: black;
+ opacity: 0.8;
+ margin-left: 320px;
+ margin-bottom: 450px;
 }
 
 .top-text {
@@ -45,8 +48,6 @@ body {
  background-position: center center;
  background-repeat: no-repeat;
  background-attachment: fixed;
- background-color: #999;
- height: 600px;
  }
 
 .top-2 {
@@ -55,7 +56,6 @@ body {
  background-position: center center;
  background-repeat: no-repeat;
  background-attachment: fixed;
- background-color: #999;
  height: 500px;
  width: 700px;
 }
@@ -65,7 +65,6 @@ body {
  background-size: cover;
  background-repeat: no-repeat;
  background-attachment: fixed;
- background-color: #999;
  height: 500px;
  width: 700px;
 }
@@ -76,7 +75,6 @@ body {
  background-position: center center;
  background-repeat: no-repeat;
  background-attachment: fixed;
- background-color: #999;
  height: 500px;
 }
 
@@ -123,14 +121,43 @@ body {
 .profile-img {
  background-image: url("profile-img.jpg");
  backgorund-size: cover;
+ padding: 10px;
+ margin-bottom: 50px;
 }
 
 .post-img {
  background-image: url("post-img.jpg");
  backgorund-size: cover;
+ padding: 10px;
+ margin-bottom: 90px;
+}
+
+.post-edit-img {
+ background-image: url("post-img.jpg");
+ backgorund-size: cover;
+ padding: 10px;
+ margin-bottom: 110px;
 }
 
 .main-background {
  background-image: url("main-background.jpg");
  background-size: cover;
+}
+
+.form-body {
+ background-color: black;
+ padding-bottom: 60px;
+ margin-left: 260px;
+ margin-bottom: 290px;
+}
+
+.sign-up-form {
+ background-color: black;
+ padding: 50px;
+ margin-left: 260px;
+ margin-bottom: 90px;
+}
+
+.blog-sidebar {
+ margin-bottom: 120px;
 }
