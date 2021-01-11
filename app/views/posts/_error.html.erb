@@ -1,0 +1,6 @@
+<% if post.errors.any? %>
+  <%= post.errors.count %><p>error</p>
+    <% post.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+<% end %>

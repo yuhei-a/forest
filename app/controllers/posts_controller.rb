@@ -17,9 +17,8 @@ class PostsController < ApplicationController
   end
 
   def new
-    @postnew = current_user.posts.new
+    @post = current_user.posts.new
     @like_posts = Like.where(user_id: current_user.id)
-    @tag_list = Tag.joins(:posts)
   end
 
   def create
@@ -27,7 +26,7 @@ class PostsController < ApplicationController
     tag_list = params[:post][:name].split(nil)
     if @post.save
        @post.save_tags(tag_list)
-       redirect_to posts_path
+       redirect_to posts_path, notice: "投稿を作成しました。"
     else
       @like_posts = Like.where(user_id: current_user.id)
       render :new
@@ -45,9 +44,10 @@ class PostsController < ApplicationController
    tag_list = params[:post][:name].split(nil)
    if @post.update_attributes(post_params)
       @post.update_tags(tag_list)
-      redirect_to post_path(@post)
+      redirect_to post_path(@post), notice: "投稿を更新しました。"
    else
-      redirect_to post_path(@post)
+      @like_posts = Like.where(user_id: current_user.id)
+      render :edit
    end
  end
 
@@ -68,6 +68,13 @@ class PostsController < ApplicationController
 
  def ranking
    @posts = Kaminari.paginate_array(Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))).page(params[:page])
+   @like_posts = Like.where(user_id: current_user.id)
+   @recent_post = Post.limit(5).order(" created_at DESC ")
+   @tag_list = Tag.joins(:posts)
+ end
+
+ def image
+   @images = Post.select(:post_image_id)
    @like_posts = Like.where(user_id: current_user.id)
    @recent_post = Post.limit(5).order(" created_at DESC ")
    @tag_list = Tag.joins(:posts)

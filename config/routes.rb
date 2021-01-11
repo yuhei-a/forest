@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'users#top'
   get "/about" => "users#about"
   get "posts/ranking", "posts#ranking"
+  get "users/image", "users/image"
+  get "posts/image", "posts/image"
   get 'search' => 'searches#search'
   devise_for :users
   devise_scope :user do
@@ -16,7 +18,6 @@ Rails.application.routes.draw do
     end
    end
    resources :chats, only: [:create,:show,:destroy]
-   resources :notifications, only: [:index, :destroy]
   end
   resources :posts do
     resources :post_comments, only: [:create,:destroy]

@@ -1,0 +1,14 @@
+<body class="main-background">
+
+  <%= render "layouts/sidebar" %>
+
+  <div class="col-md-6">
+    <h3>画像一覧</h3>
+    <% @images.each do |image| %>
+      <%= attachment_image_tag(image, :post_image, style:"height: 175px; width: 175px;") %>
+    <% end %>
+  </div>
+
+  <%= render "layouts/blog_infomation" %>
+
+</body>

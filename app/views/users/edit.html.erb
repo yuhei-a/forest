@@ -4,6 +4,7 @@
   <div class="profile-img">
     <h3>プロフィール編集</h3>
       <%= form_with model:@user, url:user_path(@user), local:true do |f| %>
+      <%= render "users/error", user: @user %>
 
        <%= f.label "画象" %>
        <%= f.attachment_field :profile_image, class: "form-control-file" %><br>

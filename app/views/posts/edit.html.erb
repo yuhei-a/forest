@@ -6,6 +6,7 @@
   <div class="post-edit-img">
     <h3>投稿編集</h3>
     <%= form_with model:@post, url:post_path(@post), local:true do |f| %>
+    <%= render "posts/error", post: @post %>
 
      <%= f.label "タイトル" %>
      <%= f.text_field :title, class: "form-control" %><br>

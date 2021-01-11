@@ -25,7 +25,7 @@
     <h4 class="font-italic">タグで検索</h4>
     <ol class="list-unstyled border-top text-center">
       <% @tag_list.each do |tag| %>
-      <li><%= link_to tag.name, post_tag_posts_path(post_id: tag.posts, tag_id: tag.id) %></li>
+      <li><%= link_to tag.name, post_tag_posts_path(post_id: tag.posts.ids, tag_id: tag.id) %></li>
       <% end %>
     </ol>
   </div>
