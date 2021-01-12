@@ -7,9 +7,6 @@ class Post < ApplicationRecord
   has_many :tag_tables, dependent: :destroy
   has_many :tags, through: :tag_tables
 
-  #通知機能
-  has_many :notifications, dependent: :destroy
-
   attachment :post_image
 
   validates :title, presence: true, length: { in: 2..80 }
@@ -28,7 +25,7 @@ class Post < ApplicationRecord
    end
   end
 
-  def save_tags(post_tags)
+  def update_tags(post_tags)
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
     old_tags = current_tags - post_tags
     new_tags = post_tags - current_tags
@@ -41,4 +38,5 @@ class Post < ApplicationRecord
       self.tags << post_tag
     end
   end
+
 end

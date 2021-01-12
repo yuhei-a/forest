@@ -1,40 +1,54 @@
-<div class="col-md-8 blog-main">
-  <h3 class="pb-3 mb-2 font-italic border-bottom">
-    投稿詳細
-  </h3>
-    <div class="blog-post">
-      <h2 class="blog-post-title"><%= @post.title %></h2>
-      <p><%= attachment_image_tag(@post, :post_image, style:"height: 50px; width: 50px;" ) %></p>
+<body class="main-background">
+
+<div class="col-md-3 sidebar">
+  <nav class="bg-transparent">
+    <div class="sidebar-sticky">
+      <ul class="nav flex-column border-top border-bottom text-center">
+        <li class="nav-item"><%= link_to "マイページ", user_path(current_user), class: "fas fa-user nav-link" %></li>
+        <li class="nav-item"><%= link_to "あなたが投稿した画像一覧", users_image_path, class: "fas fa-camera nav-link" %></li>
+        <li class="nav-item"><%= link_to "森のユーザー", users_path, class: "fas fa-users nav-link" %></li>
+        <li class="nav-item"><%= link_to "みんなの投稿", posts_path, class: "far fa-folder-open nav-link" %></li>
+        <li class="nav-item"><%= link_to "いいねランキング", posts_ranking_path, class: "fas fa-crown nav-link" %></li>
+        <li class="nav-item"><%= link_to "投稿された画像一覧", posts_image_path, class: "far fa-images nav-link" %></li>
+      </ul>
+
+      <h6 class="sidebar-heading justify-content-between align-items-center text-center pt-1">
+        <i class="fas fa-paperclip">あなたがいいねした投稿</i>
+      </h6>
+      <ul class="nav flex-column">
+        <% @like_posts.each do |like_post| %>
+        <li class="nav-item border-top text-center"><%= link_to like_post.post.title, post_path(like_post.post.id), class: "nav-link" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+  <div class="col-md-6  post-img">
+    <h3 class="pb-4 mb-4 font-italic border-bottom text-center">投稿詳細</h3>
+      <div class="blog-post">
+        <h2 class="blog-post-title"><%= @post.title %></h2>
+        <p><%= attachment_image_tag(@post, :post_image, style:"height: 50px; width: 50px;" ) %></p>
         <p class="blog-post-meta"><%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %> by <span><%= @post.user.name %></span></p>
         <p><% @post.tags.each do |tag| %>
         <span><%= link_to tag.name, post_tag_posts_path(post_id: @post.id, tag_id: tag.id), class: "btn btn-primary" %></span>
            <% end %>
-      </p>
-      <p><%= @post.content %></p>
-      <div class="likes_<%= @post.id %>">
-        <%= render "likes/likes", post: @post %><br>
-      </div>
-      <div class="sns-share">
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0" nonce="a8ip3WA7"></script>
-        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
-        <div class="line-it-button" data-lang="ja" data-type="share-b" data-ver="3" data-url="https://social-plugins.line.me/ja/how_to_install#lineitbutton" data-color="default" data-size="small" data-count="false" style="display: none;"></div>
-        <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-        <%= link_to '', "https://twitter.com/share?url=#{request.url}", class: "fab fa-twitter" %>
-      </div><br>
-      <%= render "relationships/follow", user: @user %>
-      <p>
+        <p><%= @post.content %></p>
+        <div class="likes_<%= @post.id %>">
+          <%= render "likes/likes", post: @post %>
+        </div><br>
+        <p><%= render "relationships/follow", user: @user %></p><br>
+        <p>
           <% if current_user == @post.user %>
-           <%= link_to "投稿編集", edit_post_path(@post) %>
-           <%= link_to "削除", post_path(@post), method: :delete %>
+            <%= link_to "投稿編集", edit_post_path(@post) %>
+            <%= link_to "", post_path(@post), class: "fas fa-trash fa-2x", method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
           <% end %>
-      </p>
+        </p>
+      </div>
 
-    </div>
-
-    <div class="my-3 p-3 bg-white rounded shadow-sm">
-        <h6 class="border-bottom border-gray pb-2 mb-0">コメント一覧</h6>
-        <div class="media text-muted pt-3">
+      <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h6 class="border-bottom border-gray pb-2 mb-0 text-dark">コメント一覧</h6>
+        <div class="media pt-3">
           <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
             <div class="d-flex justify-content-between align-items-center w-100">
               <div class="comment">
@@ -43,45 +57,18 @@
             </div>
           </div>
         </div>
-    </div>
+      </div>
 
-      <%= form_with model: [@post,@post_comment],url:post_post_comments_path(@post), remote: true do |f| %>
-         <%= f.label :comment %>
-         <%= f.text_area :comment, class: "form-control" %><br>
-
-      <%= f.submit "コメントする" %>
-      <% end %>
-</div>
-
-
-<aside class="col-md-3 blog-sidebar">
- <div class="p-3 mb-3 bg-light rounded">
-    <h4 class="font-italic">other user</h4>
-    <ol class="list-unstyled">
-        <li><%= attachment_image_tag(@other_user, :profile_image, style:"height: 80px; width: 80px;", class: "image-circle", fallback: "no_image.jpg") %></li>
-        <li><%= @other_user.name %></li>
-        <li><%= @other_user.introduction %></li>
-        <li><%= link_to "見にいく", user_path(@other_user) %></li>
-    </ol>
+      <div class="mb-3">
+        <%= form_with model: [@post,@post_comment],url:post_post_comments_path(@post), remote: true do |f| %>
+          <%= f.label :comment %>
+          <%= f.text_area :comment, class: "form-control" %><br>
+          <%= f.submit "コメントする" %>
+        <% end %>
+      </div>
   </div>
 
-  <div class="p-3">
-    <h4 class="font-italic">最新の投稿</h4>
-    <ol class="list-unstyled mb-0">
-     <% @recent_post.each do |post| %>
-      <li><%= link_to post.created_at.strftime("%Y-%m-%d"), post_path(post) %></li>
-    </ol>
-     <% end %>
-  </div>
 
-  <div class="p-3">
-      <h4 class="font-italic">Elsewhere</h4>
-      <ol class="list-unstyled">
-        <li><a href="#">GitHub</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Facebook</a></li>
-      </ol>
-  </div>
-</aside>
+ <%= render "layouts/blog_infomation" %>
 
-
+</body>

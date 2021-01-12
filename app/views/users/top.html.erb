@@ -1,2 +1,15 @@
-
-<h3>ログインはこちら<%= link_to "log in", new_user_session_path, class: "nav-link" %></h3>
+  <body class="top-body">
+    <div class="top-content col-md-5">
+      <div class="top-text masthead text-center">
+          <p class="lead">Welcome to forest!</p>
+          <p class="lead">
+            <%= link_to "log inはこちら", new_user_session_path, class: "btn btn-primary" %>
+            <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-info", method: :post %>
+          </p>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>

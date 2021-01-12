@@ -1,0 +1,32 @@
+<aside class="col-md-3 blog-sidebar">
+  <div class="p-3 mb-3 rounded bg-dark">
+    <h4 class="font-italic">サイト検索</h4>
+    <ol class="list-unstyled">
+      <li>
+        <%= form_tag(search_path, method: :get) do %>
+          <%= text_field_tag 'item' %>
+          <%= submit_tag '検索' %>
+        <% end %>
+      </li>
+    </ol>
+  </div>
+
+
+  <div class="p-3 mb-3 rounded bg-dark">
+    <h4 class="font-italic">最新の投稿</h4>
+    <ol class="list-unstyled">
+      <% @recent_post.each do |post| %>
+      <li><%= link_to post.created_at.strftime("%Y-%m-%d"), post_path(post) %></li>
+      <% end %>
+    </ol>
+  </div>
+
+  <div class="p-3 mb-3 rounded bg-dark">
+    <h4 class="font-italic">タグで検索</h4>
+    <ol class="list-unstyled border-top text-center">
+      <% @tag_list.each do |tag| %>
+      <li><%= link_to tag.name, post_tag_posts_path(post_id: tag.posts.ids, tag_id: tag.id) %></li>
+      <% end %>
+    </ol>
+  </div>
+</aside>

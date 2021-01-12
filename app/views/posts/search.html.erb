@@ -1,31 +1,38 @@
-<div class="row">
-  <% @posts.each do |post| %>
-    <table class="table table-info">
+<body class="main-background">
+
+<%= render "layouts/sidebar" %>
+
+<div class="col-md-6">
+      <table class="table table-info bg-dark">
       <thead>
         <tr>
           <th scope="col"></th>
-          <th scope="col">投稿者</th>
+          <th scope="col">タイトル</th>
           <th scope="col">投稿日時</th>
+          <th scope="col">like</th>
           <th scope="col"></th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row"><%= attachment_image_tag(post, :post_image, style:"height: 50px; width: 50px;" ) %></th>
-          <td><%= post.title %></td>
-          <td><%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-          <td><%= post.title %></td>
-          <td><div class="likes_<%= post.id %>">
+        <% @posts.each do |post| %>
+        <tbody>
+          <tr>
+            <th scope="row"></th>
+            <td><%= post.title %></td>
+            <td><%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+            <td>
+              <div class="likes_<%= post.id %>">
                 <%= render "likes/likes", post: post %>
               </div>
-          </td>
-          <td><i class="far fa-comment-dots">
-              <%= post.post_comments.count %>
-            </i>
-          </td>
-          <td><%= link_to "投稿詳細", post_path(post) %></td>
-        </tr>
-  <% end %>
-      </tbody>
+            </td>
+            <td>
+              <%= link_to "投稿詳細", post_path(post) %>
+            </td>
+          </tr>
+        </tbody>
+        <% end %>
     </table>
 </div>
+
+<%= render "layouts/blog_infomation" %>
+
+</body>

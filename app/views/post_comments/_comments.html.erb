@@ -1,8 +1,10 @@
-
-  <% post.post_comments.each do |post_comments| %>
-
+　<% post.post_comments.each do |post_comments| %>
+   <div class="text-dark">
     <%= post_comments.user.name %>
     <%= attachment_image_tag(post_comments.user, :profile_image, style:"height: 50px; width:50px;", fallback: "no_image.jpg") %>
     <%= post_comments.comment %>
-    <%= link_to "コメント削除", post_post_comment_path(post_comments.post.id,post_comments.id), method: :delete, remote: true %><br>
+    <% if current_user == post_comments.user %>
+      <%= link_to "", post_post_comment_path(post_comments.post.id,post_comments.id), data: {confirm: "本当に削除してもよろしいですか？"}, class: "fas fa-trash", method: :delete, remote: true %><br>
+    <% end %>
+   </div>
   <% end %>

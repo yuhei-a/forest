@@ -14,19 +14,151 @@
  // Custom bootstrap variables must be set or imported *before* bootstrap.
  @import "bootstrap";
 
- li {
-   list-style: none;
+li {
+ list-style: none;
  }
-
-.blog-header {
- background-color: #003300;
-}
-
-
-.nav-scroller {
- background-color: #008800;
-}
 
 .footer {
  background-color: #EEEEEE;
 }
+
+body {
+ color: white;
+ background-color: #222222;
+}
+
+.nav-link {
+ color: white;
+}
+
+.top-content {
+ background-color: black;
+ opacity: 0.8;
+ margin-left: 320px;
+ margin-bottom: 495px;
+}
+
+.top-text {
+ color: white;
+}
+
+.top-body {
+ background-image: image-url("topimage.jpg");
+ background-size: cover;
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ }
+
+.top-2 {
+ background-image: image-url("top-2.jpg");
+ background-size: cover;
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ height: 500px;
+ width: 700px;
+}
+
+.top-3 {
+ background-image: image-url("top-3.jpg");
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ height: 500px;
+ width: 700px;
+}
+
+.about {
+ background-image: image-url("forest-image.jpg");
+ background-size: cover;
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ height: 500px;
+}
+
+.about-text {
+ color: white;
+}
+
+.about-container {
+ color: white;
+}
+
+.post-heart {
+ background-image: image-url("post-heart");
+ background-size:cover;
+ height: 220px;
+ width: 348px;
+}
+.good-image {
+ background-image: image-url("good.jpg");
+ background-size:cover;
+ height: 220px;
+ width: 348px;
+}
+
+.share-favorite {
+ background-image: image-url("share-favorite.jpg");
+ background-size:cover;
+ height: 220px;
+ width: 348px;
+}
+
+.login-body {
+ background-image: image-url("login.jpg");
+ background-size: cover;
+ opacity: 0.8;
+}
+
+.sign-in {
+ background-image: image-url("sign-in.jpg");
+ background-size: cover;
+ opacity: 0.8;
+}
+
+.profile-img {
+ background-image: image-url("profile-img.jpg");
+ backgorund-size: cover;
+ padding: 10px;
+ margin-bottom: 50px;
+}
+
+.post-img {
+ background-image: image-url("post-img.jpg");
+ backgorund-size: cover;
+ padding: 10px;
+ margin-bottom: 90px;
+}
+
+.post-edit-img {
+ background-image: image-url("post-img.jpg");
+ backgorund-size: cover;
+ padding: 10px;
+ margin-bottom: 110px;
+}
+
+.main-background {
+ background-image: image-url("main-background.jpg");
+ background-size: cover;
+}
+
+.form-body {
+ background-color: black;
+ padding-bottom: 60px;
+ margin-left: 260px;
+ margin-bottom: 290px;
+}
+
+.sign-up-form {
+ background-color: black;
+ padding: 50px;
+ margin-left: 260px;
+ margin-bottom: 90px;
+}
+
+.blog-sidebar {
+ margin-bottom: 120px;
+}
+
