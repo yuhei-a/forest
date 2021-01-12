@@ -43,7 +43,7 @@ body {
 }
 
 .top-body {
- background-image: url("topimage.jpg");
+ background-image: image-url("topimage.jpg");
  background-size: cover;
  background-position: center center;
  background-repeat: no-repeat;
@@ -51,7 +51,7 @@ body {
  }
 
 .top-2 {
- background-image: url("top-2.jpg");
+ background-image: image-url("top-2.jpg");
  background-size: cover;
  background-position: center center;
  background-repeat: no-repeat;
@@ -61,7 +61,7 @@ body {
 }
 
 .top-3 {
- background-image: url("top-3.jpg");
+ background-image: image-url("top-3.jpg");
  background-size: cover;
  background-repeat: no-repeat;
  background-attachment: fixed;
@@ -70,7 +70,7 @@ body {
 }
 
 .about {
- background-image: url("forest-image.jpg");
+ background-image: image-url("forest-image.jpg");
  background-size: cover;
  background-position: center center;
  background-repeat: no-repeat;
@@ -87,60 +87,60 @@ body {
 }
 
 .post-heart {
- background-image: url("post-heart");
+ background-image: image-url("post-heart");
  background-size:cover;
  height: 220px;
  width: 348px;
 }
 .good-image {
- background-image: url("good.jpg");
+ background-image: image-url("good.jpg");
  background-size:cover;
  height: 220px;
  width: 348px;
 }
 
 .share-favorite {
- background-image: url("share-favorite.jpg");
+ background-image: image-url("share-favorite.jpg");
  background-size:cover;
  height: 220px;
  width: 348px;
 }
 
 .login-body {
- background-image: url("login.jpg");
+ background-image: image-url("login.jpg");
  background-size: cover;
  opacity: 0.8;
 }
 
 .sign-in {
- background-image: url("sign-in.jpg");
+ background-image: image-url("sign-in.jpg");
  background-size: cover;
  opacity: 0.8;
 }
 
 .profile-img {
- background-image: url("profile-img.jpg");
+ background-image: image-url("profile-img.jpg");
  backgorund-size: cover;
  padding: 10px;
  margin-bottom: 50px;
 }
 
 .post-img {
- background-image: url("post-img.jpg");
+ background-image: image-url("post-img.jpg");
  backgorund-size: cover;
  padding: 10px;
  margin-bottom: 90px;
 }
 
 .post-edit-img {
- background-image: url("post-img.jpg");
+ background-image: image-url("post-img.jpg");
  backgorund-size: cover;
  padding: 10px;
  margin-bottom: 110px;
 }
 
 .main-background {
- background-image: url("main-background.jpg");
+ background-image: image-url("main-background.jpg");
  background-size: cover;
 }
 
