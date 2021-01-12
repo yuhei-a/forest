@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
+
   def index
     @posts = Post.page(params[:page]).per(5)
     @like_posts = Like.where(user_id: current_user.id)
-    @recent_post = Post.limit(5).order(" created_at DESC ")
+    @recent_post = Post.limit(5).order(Arel.sql(" created_at DESC "))
     @tag_list = Tag.joins(:posts)
   end
 
@@ -12,7 +13,7 @@ class PostsController < ApplicationController
     @post_comment = PostComment.new
     @user = @post.user
     @like_posts = Like.where(user_id: current_user.id)
-    @recent_post = Post.limit(5).order(" created_at DESC ")
+    @recent_post = Post.limit(5).order(Arel.sql(" created_at DESC "))
     @tag_list = Tag.joins(:posts)
   end
 
@@ -62,21 +63,21 @@ class PostsController < ApplicationController
    @tag = Tag.find(params[:tag_id])
    @posts = @tag.posts.all
    @like_posts = Like.where(user_id: current_user.id)
-   @recent_post = Post.limit(5).order(" created_at DESC ")
+   @recent_post = Post.limit(5).order(Arel.sql(" created_at DESC "))
    @tag_list = Tag.joins(:posts)
  end
 
  def ranking
-   @posts = Kaminari.paginate_array(Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))).page(params[:page])
+   @ranks = Kaminari.paginate_array(Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))).page(params[:page]).per(5)
    @like_posts = Like.where(user_id: current_user.id)
-   @recent_post = Post.limit(5).order(" created_at DESC ")
+   @recent_post = Post.limit(5).order(Arel.sql(" created_at DESC "))
    @tag_list = Tag.joins(:posts)
  end
 
  def image
    @images = Post.select(:post_image_id)
    @like_posts = Like.where(user_id: current_user.id)
-   @recent_post = Post.limit(5).order(" created_at DESC ")
+   @recent_post = Post.limit(5).order(Arel.sql(" created_at DESC "))
    @tag_list = Tag.joins(:posts)
  end
 

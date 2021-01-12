@@ -4,6 +4,7 @@
           <p class="lead">Welcome to forest!</p>
           <p class="lead">
             <%= link_to "log inはこちら", new_user_session_path, class: "btn btn-primary" %>
+            <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-info", method: :post %>
           </p>
       </div>
     </div>

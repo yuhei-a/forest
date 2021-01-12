@@ -14,9 +14,9 @@
               <p class="card-text mb-auto"><%= @user.introduction %></p>
               <p><%= @user.sign %></p>
               <p><%= @user.bloodtype %></p>
+              <% if current_user == @user %>
               <p>フォロー：<%= link_to "#{@user.follower.count}", following_user_relationships_path(@user) %></p>
               <p>フォロワー：<%= link_to "#{@user.followed.count}", followed_user_relationships_path(@user) %></p>
-              <% if current_user == @user %>
               <p><%= link_to " 編集", edit_user_path(@user), class: "fas fa-user-edit btn btn-primary" %></p>
               <% end %>
               <% if current_user != @user %>
@@ -25,7 +25,7 @@
               <% end %>
 
     </div>
-    <%= attachment_image_tag(@user, :profile_image, style:"height: 320px; width: 320px;", fallback: "no_image.jpg") %>
+    <%= attachment_image_tag(@user, :profile_image, style:"height: 300px; width: 290px;", fallback: "no_image.jpg") %>
   </div>
 
    <h5>投稿一覧</h5>

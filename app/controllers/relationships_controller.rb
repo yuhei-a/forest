@@ -14,14 +14,14 @@ class RelationshipsController < ApplicationController
   def following
    @following = current_user.following_user
    @like_posts = Like.where(user_id: current_user.id)
-   @recent_post = Post.limit(5).order(" created_at DESC ")
+   @recent_post = Post.limit(5).order(Arel.sql(" created_at DESC "))
    @tag_list = Tag.joins(:posts)
   end
 
   def followed
    @followed = current_user.followed_user
    @like_posts = Like.where(user_id: current_user.id)
-   @recent_post = Post.limit(5).order(" created_at DESC ")
+   @recent_post = Post.limit(5).order(Arel.sql(" created_at DESC "))
    @tag_list = Tag.joins(:posts)
   end
 end

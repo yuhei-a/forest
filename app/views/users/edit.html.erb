@@ -1,34 +1,36 @@
-<%= render "layouts/sidebar" %>
+<body class="main-background">
+  <%= render "layouts/sidebar" %>
 
-<div class="col-md-9">
-  <div class="profile-img">
-    <h3>プロフィール編集</h3>
-      <%= form_with model:@user, url:user_path(@user), local:true do |f| %>
-      <%= render "users/error", user: @user %>
+  <div class="col-md-9">
+    <div class="profile-img">
+      <h3>プロフィール編集</h3>
+        <%= render "users/error", user: @user %>
+        <%= form_with model:@user, url:user_path(@user), local:true do |f| %>
 
-       <%= f.label "画象" %>
-       <%= f.attachment_field :profile_image, class: "form-control-file" %><br>
+         <%= f.label "画象" %>
+         <%= f.attachment_field :profile_image, class: "form-control-file" %><br>
 
-       <%= f.label "名前" %>
-       <%= f.text_field :name, class: "form-control" %><br>
+         <%= f.label "名前" %>
+         <%= f.text_field :name, class: "form-control" %><br>
 
-       <%= f.label "自己紹介" %>
-       <%= f.text_area :introduction, class: "form-control" %><br>
+         <%= f.label "自己紹介" %>
+         <%= f.text_area :introduction, class: "form-control" %><br>
 
-       <%= f.label "性別" %>
-       <%= f.select :gender, User.genders.keys, include_blank: true %><br>
+         <%= f.label "性別" %>
+         <%= f.select :gender, User.genders.keys, include_blank: true %><br>
 
-       <%= f.label "都道府県" %>
-       <%= f.select :prefectures, User.prefectures.keys, include_blank: true %><br>
+         <%= f.label "都道府県" %>
+         <%= f.select :prefectures, User.prefectures.keys, include_blank: true %><br>
 
-       <%= f.label "血液型" %>
-       <%= f.select :bloodtype, User.bloodtypes.keys, include_blank: true %><br>
+         <%= f.label "血液型" %>
+         <%= f.select :bloodtype, User.bloodtypes.keys, include_blank: true %><br>
 
-       <%= f.label "星座" %>
-       <%= f.select :sign, User.signs.keys, include_blank: true %><br>
-       <%= f.submit "編集" %><br>
-       <br>
-     <% end %>
+         <%= f.label "星座" %>
+         <%= f.select :sign, User.signs.keys, include_blank: true %><br>
+         <%= f.submit "編集" %><br>
+         <br>
+        <% end %>
+    </div>
   </div>
-</div>
+</body>
 

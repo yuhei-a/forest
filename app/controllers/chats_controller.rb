@@ -2,6 +2,8 @@ class ChatsController < ApplicationController
 
   def show
     @like_posts = Like.where(user_id: current_user.id)
+    @recent_post = Post.limit(5).order(Arel.sql(" created_at DESC "))
+    @tag_list = Tag.joins(:posts)
     @user = User.find(params[:id])
     rooms = current_user.user_rooms.pluck(:room_id)
     user_rooms = UserRoom.find_by(user_id: @user.id, room_id: rooms)
