@@ -75,7 +75,7 @@ class PostsController < ApplicationController
  end
 
  def image
-   @images = Post.select(:post_image_id)
+   @images = Post.select(:post_image_id, :id)
    @like_posts = Like.where(user_id: current_user.id)
    @recent_post = Post.limit(5).order(Arel.sql(" created_at DESC "))
    @tag_list = Tag.joins(:posts)

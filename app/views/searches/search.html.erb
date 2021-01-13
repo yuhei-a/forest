@@ -27,5 +27,11 @@
   <%= render "layouts/blog_infomation" %>
 
 <% else %>
-  <h3><%= @item %>に該当はありません</h3>
+  <body class="main-background">
+  <%= render "layouts/sidebar" %>
+    <div class="col-md-6">
+      <h3>【検索結果】<%= @item %>に該当はありません</h3>
+    </div>
+  <%= render "layouts/blog_infomation" %>
+</body>
 <% end %>
