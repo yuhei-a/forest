@@ -15,7 +15,7 @@
       </thead>
         <% @posts.each do |post| %>
         <tbody>
-          <tr>
+          <tr class="post-img">
             <th scope="row"></th>
             <td><%= post.title %></td>
             <td><%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>

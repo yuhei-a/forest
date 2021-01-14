@@ -24,9 +24,11 @@ li {
 
 body {
  color: white;
- background-color: #222222;
 }
 
+.about-body {
+ background-color: #556B2F;
+}
 .nav-link {
  color: white;
 }
@@ -43,25 +45,24 @@ body {
 }
 
 .top-body {
- background-image: image-url("topimage.jpg");
+ background-image: image-url("top-img.jpg");
  background-size: cover;
  background-position: center center;
  background-repeat: no-repeat;
  background-attachment: fixed;
  }
 
-.top-2 {
- background-image: image-url("top-2.jpg");
+.about-2 {
+ background-image: image-url("about-2.jpg");
  background-size: cover;
- background-position: center center;
  background-repeat: no-repeat;
  background-attachment: fixed;
  height: 500px;
  width: 700px;
 }
 
-.top-3 {
- background-image: image-url("top-3.jpg");
+.about-3 {
+ background-image: image-url("about-3.jpg");
  background-size: cover;
  background-repeat: no-repeat;
  background-attachment: fixed;
@@ -120,7 +121,7 @@ body {
 
 .profile-img {
  background-image: image-url("profile-img.jpg");
- backgorund-size: cover;
+ background-size: cover;
  padding: 10px;
  margin-bottom: 50px;
 }
@@ -155,10 +156,15 @@ body {
  background-color: black;
  padding: 50px;
  margin-left: 260px;
- margin-bottom: 90px;
+ margin-bottom: 95px;
 }
 
 .blog-sidebar {
  margin-bottom: 120px;
+}
+
+.blog-info-img {
+ background-image: image-url("blog-info-img");
+ background-size: cover;
 }
 

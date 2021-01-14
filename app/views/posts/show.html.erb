@@ -28,7 +28,7 @@
     <h3 class="pb-4 mb-4 font-italic border-bottom text-center">投稿詳細</h3>
       <div class="blog-post">
         <h2 class="blog-post-title"><%= @post.title %></h2>
-        <p><%= attachment_image_tag(@post, :post_image, style:"height: 50px; width: 50px;" ) %></p>
+        <p><%= attachment_image_tag(@post, :post_image, style:"height: 100px; width: 100px;" ) %></p>
         <p class="blog-post-meta"><%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %> by <span><%= @post.user.name %></span></p>
         <p><% @post.tags.each do |tag| %>
         <span><%= link_to tag.name, post_tag_posts_path(post_id: @post.id, tag_id: tag.id), class: "btn btn-primary" %></span>

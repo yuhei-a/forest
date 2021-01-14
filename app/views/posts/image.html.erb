@@ -5,7 +5,9 @@
   <div class="col-md-6">
     <h3>画像一覧</h3>
     <% @images.each do |image| %>
-      <%= attachment_image_tag(image, :post_image, style:"height: 175px; width: 175px;") %>
+      <%= link_to post_path(image.id) do %>
+        <%= attachment_image_tag(image, :post_image, style:"height: 175px; width: 175px;") %>
+      <% end %>
     <% end %>
   </div>
 
