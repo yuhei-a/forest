@@ -1,0 +1,18 @@
+<body class="main-background">
+
+<%= render "layouts/sidebar" %>
+
+<div class="col-md-6">
+  <h2>本当に退会しますか？</h2>
+  <div>
+    <p>退会する場合は、『退会する』をクリックしてください。</p>
+  </div>
+  <div>
+    <%= link_to '退会しない', user_path(current_user.id) %>
+    <%= link_to "退会する", withdraw_user_path(current_user.id), method: :patch %>
+  </div>
+</div>
+
+<%= render "layouts/blog_infomation" %>
+
+</body>

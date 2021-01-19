@@ -35,14 +35,13 @@ class User < ApplicationRecord
   def following?(user)
     following_user.include?(user)
   end
-  
+
   #ゲストログイン機能
   def self.guest
     find_or_create_by!(name: 'ゲスト', email: 'guest@guest.com') do |user|
     user.password = SecureRandom.urlsafe_base64
     end
   end
-
 
   enum gender: { '秘密': 0, '男性': 1, '女性': 2 }, _prefix: true
   enum bloodtype: { '秘密': 0, 'A型': 1, 'B型': 2, 'AB型': 3, 'O型': 4 }, _prefix: true
