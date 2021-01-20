@@ -43,6 +43,10 @@ class User < ApplicationRecord
     end
   end
 
+  def active_for_authentication?
+    super && (self.is_valid == true)
+  end
+
   enum gender: { '秘密': 0, '男性': 1, '女性': 2 }, _prefix: true
   enum bloodtype: { '秘密': 0, 'A型': 1, 'B型': 2, 'AB型': 3, 'O型': 4 }, _prefix: true
   enum sign: { '秘密': 0, '牡羊座': 1, '牡牛座': 2, '双子座': 3, '蟹座': 4, '獅子座': 5, '乙女座': 6, '天秤座': 7, '蠍座': 8, '射手座': 9, '山羊座':10, '水瓶座': 11, '魚座': 12 }, _prefix: true

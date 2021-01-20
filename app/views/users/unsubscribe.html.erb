@@ -8,8 +8,8 @@
     <p>退会する場合は、『退会する』をクリックしてください。</p>
   </div>
   <div>
-    <%= link_to '退会しない', user_path(current_user.id) %>
-    <%= link_to "退会する", withdraw_user_path(current_user.id), method: :patch %>
+    <p><%= link_to '退会しない', user_path(current_user.id), class: "btn btn-primary" %></p>
+    <p><%= link_to "退会する", withdraw_user_path(current_user.id), class: "btn btn-danger", method: :patch %></p>
   </div>
 </div>
 

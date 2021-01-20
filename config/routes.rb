@@ -5,9 +5,6 @@ Rails.application.routes.draw do
   get 'users/image' => 'users#image'
   get 'posts/image' => 'posts#image'
   get 'search' => 'searches#search'
-  get 'unsubscribe/:name' => 'users#unsubscribe', as: 'confirm_unsubscribe'
-  patch ':id/withdraw/:name' => 'users#withdraw', as: 'withdraw_user'
-  put 'withdraw/:name' => 'users#withdraw'
   devise_for :users
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
@@ -15,6 +12,10 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users do
+    member do
+      get 'unsubscribe'
+      patch 'withdraw'
+    end
     resource :relationships, only: [:create, :destroy] do
     collection do
       get :following, :followed
