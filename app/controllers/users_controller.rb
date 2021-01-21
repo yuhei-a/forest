@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @users = User.page(params[:page]).per(5)
     @recent_post = Post.limit(5).order(Arel.sql(" created_at DESC "))
     @like_posts = Like.where(user_id: current_user.id)
-    @tag_list = Tag.joins(:posts)
+    @tag_list = Tag.limit(15).order(Arel.sql(" created_at DESC ")).joins(:posts)
   end
 
   def show
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @like_post = Like.where(user_id: current_user.id)
     @recent_post = Post.limit(5).order(Arel.sql(" created_at DESC "))
     @like_posts = Like.where(user_id: current_user.id)
-    @tag_list = Tag.joins(:posts)
+    @tag_list = Tag.limit(15).order(Arel.sql(" created_at DESC ")).joins(:posts)
   end
 
   def edit
@@ -36,14 +36,14 @@ class UsersController < ApplicationController
    @images = Post.where(user_id: current_user.id).select(:post_image_id, :id)
    @like_posts = Like.where(user_id: current_user.id)
    @recent_post = Post.limit(5).order(Arel.sql(" created_at DESC "))
-   @tag_list = Tag.joins(:posts)
+   @tag_list = Tag.limit(15).order(Arel.sql(" created_at DESC ")).joins(:posts)
   end
 
   def unsubscribe
    @user = User.find(params[:id])
    @like_posts = Like.where(user_id: current_user.id)
    @recent_post = Post.limit(5).order(Arel.sql(" created_at DESC "))
-   @tag_list = Tag.joins(:posts)
+   @tag_list = Tag.limit(15).order(Arel.sql(" created_at DESC ")).joins(:posts)
   end
 
   def withdraw
