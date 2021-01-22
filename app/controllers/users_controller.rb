@@ -53,6 +53,8 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def term_service; end
+
   def top; end
 
   def about; end

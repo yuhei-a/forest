@@ -43,6 +43,7 @@ class User < ApplicationRecord
     end
   end
 
+  #退会済みの場合ログインできない処理
   def active_for_authentication?
     super && (self.is_valid == true)
   end
