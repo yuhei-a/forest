@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'unlikes/create'
   root 'users#top'
   get '/about' => 'users#about'
   get 'posts/ranking' => 'posts#ranking'
@@ -30,5 +31,6 @@ Rails.application.routes.draw do
       get 'posts', to: 'posts#search'
     end
     resource :likes, only: [:create, :destroy]
+    resource :unlikes, only: [:create, :destroy]
   end
 end

@@ -19,6 +19,9 @@
               <div class="likes_<%= post.id %>">
                <%= render "likes/likes", post: post %>
               </div>
+              <div class="unlike">
+               <%= render "unlikes/unlike", post: post %>
+              </div>
             </div>
             <div class="card-text mb-auto">
               <i class="far fa-comment-dots">
