@@ -1,10 +1,10 @@
 <% if post.unliked_by?(current_user) %>
-   <%= link_to post_unlikes_path(post), method: :delete do %>
+   <%= link_to post_unlikes_path(post), method: :delete, remote: true do %>
      <i class="far fa-thumbs-down" style="color: black;"></i>
      <%= post.unlikes.count %>
    <% end %>
 <% else %>
-   <%= link_to post_unlikes_path(post), method: :post do %>
+   <%= link_to post_unlikes_path(post), method: :post, remote: true do %>
     <i class="far fa-thumbs-down"></i>
      <%= post.unlikes.count %>
    <% end %>

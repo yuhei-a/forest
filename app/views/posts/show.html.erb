@@ -14,7 +14,7 @@
         <div class="likes_<%= @post.id %>">
           <%= render "likes/likes", post: @post %>
         </div>
-        <div class="unlike">
+        <div class="unlikes_<%= @post.id %>">
           <%= render "unlikes/unlike", post: @post %>
         </div><br>
         <p><%= render "relationships/follow", user: @user %></p><br>
