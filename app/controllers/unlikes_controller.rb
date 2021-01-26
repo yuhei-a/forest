@@ -3,10 +3,9 @@ class UnlikesController < ApplicationController
     @post = Post.find(params[:post_id])
     @unlike = current_user.unlike.new(post_id: @post.id)
 
-    if @like = Like.find_by(user_id: current_user.id, post_id: @post.id)
-       @like.save
+    if @like = Like.find_by(user_id: current_user.id,post_id: @post.id)
+       @like.destroy
     end
-
     @unlike.save
   end
 

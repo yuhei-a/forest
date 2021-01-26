@@ -1,1 +1,1 @@
-$(".unlikes_<%= @post.id %>").html("<%= j(render 'unlikes/unlike', post: @post) %>");
+$(".good_or_bad_<%= @post.id %>").html("<%= j(render 'posts/likeorunlike', post: @post) %>");
