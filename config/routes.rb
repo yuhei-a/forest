@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'users/image' => 'users#image'
   get 'posts/image' => 'posts#image'
   get 'search' => 'searches#search'
+  get 'users/timeline' => 'users#timeline'
   get 'term_service' => 'users#term_service'
   devise_for :users
   devise_scope :user do

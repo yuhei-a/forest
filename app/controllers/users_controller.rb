@@ -46,6 +46,13 @@ class UsersController < ApplicationController
    @tag_list = Tag.limit(15).order(Arel.sql(" created_at DESC ")).joins(:posts)
   end
 
+  def timeline
+   @timelines = Post.where(user_id: [current_user.id, *current_user.following_user])
+   @like_posts = Like.where(user_id: current_user.id)
+   @recent_post = Post.limit(5).order(Arel.sql(" created_at DESC "))
+   @tag_list = Tag.limit(15).order(Arel.sql(" created_at DESC ")).joins(:posts)
+  end
+
   def withdraw
     @user = User.find(current_user.id)
     @user.update(is_valid: false)
