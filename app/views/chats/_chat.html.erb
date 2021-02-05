@@ -1,0 +1,11 @@
+<% chats.each do |chat| %>
+        <div class="media pt-3">
+          <%= attachment_image_tag(chat.user, :profile_image, style:"height: 38px; width: 38px;", class: "image-circle", fallback: "no_image.jpg") %>
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+              <div class="d-flex justify-content-between align-items-center w-100">
+                  <strong class="text-gray-dark"><%= chat.user.name %></strong>
+                  <%= chat.message %>
+              </div>
+            </div>
+        </div>
+<% end %>

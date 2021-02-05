@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :unlike, dependent: :destroy
   has_many :post_comments, dependent: :destroy
 
   #フォロー機能
@@ -43,6 +44,7 @@ class User < ApplicationRecord
     end
   end
 
+  #退会済みの場合ログインできない処理
   def active_for_authentication?
     super && (self.is_valid == true)
   end

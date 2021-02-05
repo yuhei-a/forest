@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_17_122843) do
+ActiveRecord::Schema.define(version: 2021_01_23_123402) do
 
   create_table "chats", force: :cascade do |t|
     t.integer "user_id"
@@ -23,13 +23,6 @@ ActiveRecord::Schema.define(version: 2021_01_17_122843) do
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "meetings", force: :cascade do |t|
-    t.string "name"
-    t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,6 +69,13 @@ ActiveRecord::Schema.define(version: 2021_01_17_122843) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "unlikes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_rooms", force: :cascade do |t|
     t.integer "user_id"
     t.integer "room_id"
@@ -92,11 +92,11 @@ ActiveRecord::Schema.define(version: 2021_01_17_122843) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "gender"
+    t.integer "gender", default: 0
     t.string "introduction"
-    t.integer "bloodtype"
-    t.integer "sign"
-    t.integer "prefectures"
+    t.integer "bloodtype", default: 0
+    t.integer "sign", default: 0
+    t.integer "prefectures", default: 0
     t.string "profile_image_id"
     t.boolean "is_valid", default: true, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -1,10 +1,10 @@
   <body class="top-body">
     <div class="top-content col-md-5">
       <div class="top-text masthead text-center">
-          <p class="lead">Welcome to forest!</p>
-          <p class="lead">
-            <%= link_to "log inはこちら", new_user_session_path, class: "btn btn-primary" %>
-            <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-info", method: :post %>
+          <p class="lead"></p>
+            <p><%= link_to "新規登録", new_user_registration_path, class: "btn btn-warning" %></p>
+            <p><%= link_to "会員用ログイン", new_user_session_path, class: "btn btn-success" %></p>
+            <p><%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-info", method: :post %></p>
           </p>
       </div>
     </div>

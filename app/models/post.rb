@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :unlikes, dependent: :destroy
 
   #タグ機能
   has_many :tag_tables, dependent: :destroy
@@ -16,6 +17,10 @@ class Post < ApplicationRecord
   #すでに良いねをしているか確認する
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
+  end
+
+  def unliked_by?(user)
+    unlikes.where(user_id: user.id).exists?
   end
 
   def save_tags(post_tags)

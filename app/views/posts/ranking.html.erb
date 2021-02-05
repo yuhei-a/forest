@@ -16,8 +16,8 @@
             </h3>
             <div class="mb-1"><%= ranking.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
             <div class="card-text">
-              <div class="likes_<%= ranking.id %>">
-               <%= render "likes/likes", post: ranking %>
+              <div class="good_or_bad_<%= ranking.id %>">
+               <%= render "posts/likeorunlike", post: ranking %>
               </div>
             </div>
             <div class="card-text mb-auto">

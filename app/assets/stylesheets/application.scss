@@ -20,14 +20,18 @@ li {
 
 .footer {
  background-color: #EEEEEE;
+ margin-top: auto;
 }
 
 body {
  color: white;
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
 }
 
 .about-body {
- background-color: #556B2F;
+ background: radial-gradient(#F2B9A1, #EA6264) fixed;
 }
 .nav-link {
  color: white;
@@ -36,8 +40,7 @@ body {
 .top-content {
  background-color: black;
  opacity: 0.8;
- margin-left: 320px;
- margin-bottom: 510px;
+ margin-left: 700px;
 }
 
 .top-text {
@@ -123,21 +126,18 @@ body {
  background-image: image-url("profile-img.jpg");
  background-size: cover;
  padding: 10px;
- margin-bottom: 50px;
 }
 
 .post-img {
  background-image: image-url("post-img.jpg");
  backgorund-size: cover;
  padding: 10px;
- margin-bottom: 90px;
 }
 
 .post-edit-img {
  background-image: image-url("post-img.jpg");
  backgorund-size: cover;
  padding: 10px;
- margin-bottom: 110px;
 }
 
 .main-background {
@@ -149,22 +149,21 @@ body {
  background-color: black;
  padding-bottom: 60px;
  margin-left: 260px;
- margin-bottom: 305px;
 }
 
 .sign-up-form {
  background-color: black;
  padding: 50px;
  margin-left: 260px;
- margin-bottom: 110px;
 }
 
-.blog-sidebar {
- margin-bottom: 120px;
-}
 
 .blog-info-img {
  background-image: image-url("blog-info-img");
  background-size: cover;
+}
+
+.term {
+ background-color: green;
 }
 

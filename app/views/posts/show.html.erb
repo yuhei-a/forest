@@ -11,8 +11,8 @@
         <span><%= link_to tag.name, post_tag_posts_path(post_id: @post.id, tag_id: tag.id), class: "btn btn-primary" %></span>
            <% end %>
         <p><%= @post.content %></p>
-        <div class="likes_<%= @post.id %>">
-          <%= render "likes/likes", post: @post %>
+        <div class="good_or_bad_<%= @post.id %>">
+          <%= render "posts/likeorunlike", post: @post %>
         </div><br>
         <p><%= render "relationships/follow", user: @user %></p><br>
         <p>
