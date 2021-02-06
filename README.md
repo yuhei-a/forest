@@ -21,8 +21,6 @@
 ## 設計書
 AWS 構成図
 ![Forest-AWSDiagram-AWS構成図](https://user-images.githubusercontent.com/73011166/105576323-4f8c7180-5db5-11eb-91b0-b4f2592978b4.jpg)
-AWS 設計図
-https://docs.google.com/spreadsheets/d/1h3tuLaenm7sDAiXYyrRuh8Pm65ye5hkXGnvy1r3TPIo/edit#gid=0
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1ARP6LvM7sutokQc2qJaXf8eTPcSXiekRXOuYuK70Cyc/edit#gid=0
