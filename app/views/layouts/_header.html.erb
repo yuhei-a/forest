@@ -2,7 +2,7 @@
   <div class="row bg-dark flex-nowrap justify-content-between align-items-center">
       <% if user_signed_in? %>
         <div class="col-4">
-          <a class="text-muted nav-item" ><%= link_to "", new_post_path, class: "fas fa-pencil-alt nav-link" %></a>
+          <a class="text-muted nav-item" ><%= link_to " 投稿", new_post_path, class: "fas fa-pencil-alt nav-link" %></a>
         </div>
         <div class="col-4 text-center">
           <%= link_to "forest", user_path(current_user), class: "navbar-brand nav-link" %></a>
@@ -11,10 +11,7 @@
           <a class="nav-item"><%= link_to "", destroy_user_session_path, method: :delete, class: "fas fa-door-open nav-link btn btn-danger" %></a>
         </div>
       <% else %>
-        <div class="col-4">
-          <a class="text-muted nav-item" ><%= link_to "about", about_path, class: "nav-link" %></a>
-        </div>
-        <div class="col-4 text-center">
+        <div class="col-8 text-center">
           <%= link_to "forest", root_path, class: "nav-link blog-header-logo navbar-brand" %></a>
         </div>
         <div class="col-4">

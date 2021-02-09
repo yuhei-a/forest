@@ -64,8 +64,6 @@ class UsersController < ApplicationController
 
   def top; end
 
-  def about; end
-
   private
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction, :gender, :prefectures, :sign, :bloodtype)
